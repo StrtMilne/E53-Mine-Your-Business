@@ -25,12 +25,11 @@ app.get("/scores", (req, res) => {
     .then(results => res.send(results.rows));
 })
 
-// WORKING ON
-
-// app.post("/scores", (req, res) => {
-//     let p_name = req.body["player_name"];
-//     let p_score = req.body["score"];
-//     client.query(`INSERT INTO high_scores (player_name, score) VALUES (${p_name}, ${p_score});`)
-// })
+app.post("/scores", (req, res) => {
+    let p_name = req.body.player_name;
+    let p_score = req.body.score;
+    client.query(`INSERT INTO high_scores (player_name, score) VALUES ('${p_name}', ${p_score}) RETURNING *;`)
+    .then(result => res.send(result.rows))
+    })
 
 app.listen(5000, () => console.log(`Listening on port`));
