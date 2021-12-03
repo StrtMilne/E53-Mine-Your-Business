@@ -50,7 +50,7 @@ const GameContainer = function () {
 
     const cashOut = () => {
         console.log("cash out called"); // testing
-        setTotalScore(score);
+        setTotalScore(totalScore + score);
         setScore(0);
         resetGame();
     }
