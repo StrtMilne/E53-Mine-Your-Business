@@ -56,10 +56,17 @@ const GameContainer = function () {
     }
 
     const bombClicked = () => {
+        // disable clicking of the tiles grid after cashout button clicked & the cashout button
+        document.querySelector(".Tile-list").style.pointerEvents = "none";
+        document.querySelector(".cashout-button").style.pointerEvents = "none";
+        // 2 second delay before resetting grid after bomb click
         setTimeout(() => {
             setTotalScore(0);
             setScore(0);
             resetGame();
+            // re-enable clicking of the tiles grid after has been processed & the cashout button
+            document.querySelector(".Tile-list").style.pointerEvents = "auto";
+            document.querySelector(".cashout-button").style.pointerEvents = "auto";
         }, 2000);
     }
 
@@ -70,7 +77,7 @@ const GameContainer = function () {
                 <div className="left">
                     <h2>Total Score: {totalScore}</h2>
                     <p>Score: {score}</p>
-                    <button onClick={cashOut}><strong>Cash Out: </strong>{score} point(s)</button>
+                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} />

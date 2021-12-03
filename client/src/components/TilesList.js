@@ -16,3 +16,4 @@ const TilesList = function ({tiles, setClicked, incrementScore, bombClicked}) {
 };
 
 export default TilesList;
+    
