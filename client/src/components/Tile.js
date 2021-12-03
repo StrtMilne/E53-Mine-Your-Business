@@ -16,7 +16,6 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked}) => {
                 incrementScore();
             } else if (event.target.title === "true") {
                 // bomb clicked
-                console.log("bomb clicked"); // testing
                 bombClicked();
             }
         }
@@ -24,8 +23,8 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked}) => {
  
     return(
             <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
-                {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image"/> : null}
-                {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image"/> : null}
+                {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image" alt="" /> : null}
+                {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image" alt="" /> : null}
             </div>
     )
 

@@ -8,6 +8,7 @@ const GameContainer = function () {
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
     const [totalScore, setTotalScore] = useState(0);
+    const [numberMines, setNumberMines] = useState(0);
 
     useEffect(() => {
         resetGame();
@@ -39,7 +40,7 @@ const GameContainer = function () {
 
     const setClicked = (index) => {
         let temp = tiles.map(t => t);
-        console.log(temp)
+        // console.log(temp); // testing
         temp[index].clicked = true;
         setTiles(temp);
     }
@@ -70,13 +71,40 @@ const GameContainer = function () {
         }, 2000);
     }
 
+    const handDropdownInput = (event) => {
+        // console.log(event.target.value); // testing
+        const numberMines = event.target.value;
+    }
+
     return(
         <div>
             <GameHeader />
             <div className="game-container">
                 <div className="left">
                     <h2>Total Score: {totalScore}</h2>
-                    <p>Score: {score}</p>
+                    <br /><br />
+                    {/* <p>Number Of Mines:</p> */}
+                    <label htmlFor="numberMines">Number Of Mines: </label>
+                    <select name="numberMines" id="numberMines" onInput={handDropdownInput}>
+                        <option value={0}>select...</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
+                        <option value={9}>9</option>
+                        <option value={10}>10</option>
+                        <option value={11}>11</option>
+                        <option value={12}>12</option>
+                        <option value={13}>13</option>
+                        <option value={14}>14</option>
+                        <option value={15}>15</option>
+                    </select>
+                    <br /><br /><br />
+                    <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                 </div>
                 <div className="Right">
