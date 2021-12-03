@@ -4,7 +4,7 @@ import Tile from "./Tile";
 const TilesList = function ({tiles}) {
 
     const tileItems = tiles.map((tile, index) => {
-        return <Tile key={index} tile={tile} />
+        return <Tile key={index} tile={tile} index={index} />
     })
     
     return(

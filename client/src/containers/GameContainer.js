@@ -6,7 +6,8 @@ const GameContainer = function () {
     const [tiles, setTiles] = useState([]);
 
     useEffect(() => {
-        const defaultArray = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        const defaultArray = 
+            [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
         const bombIndex = Math.floor(Math.random() * 16);
         defaultArray[bombIndex] = true;
         setTiles(defaultArray);
