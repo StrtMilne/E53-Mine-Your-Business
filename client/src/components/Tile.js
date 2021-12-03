@@ -3,18 +3,24 @@ import "./static/Tile.css";
 import bombImage from "../assets/bomb.svg";
 import gemImage from "../assets/gem.svg";
 
-const Tile = ({tile, index, setClicked}) => {
+const Tile = ({tile, index, setClicked, incrementScore}) => {
     
     const handleClick = function(event) {
         console.log("event:", event.target);
         console.log("event:", event.target.title);
-        // change tile.clicked to true
-        setClicked(event.target.id);
+        // ^ testing
+        const id = event.target.id;
+        setClicked(id);
+        if (event.target.title === "false") {
+            incrementScore();
+        } else {
+            return;
+            //reset game added here ...
+        }
     }
  
     return(
         <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
-            {/* {tile.value ? <img src={bombImage} className="bomb-image" /> : <img src={gemImage} className="gem-image" />} */}
             {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image"/> : null}
             {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image"/> : null}
         </div>

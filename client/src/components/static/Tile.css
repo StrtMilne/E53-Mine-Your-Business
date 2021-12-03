@@ -1,20 +1,21 @@
 .individual_tile {
    background-color: aquamarine;
-   width: 20vh;
-   height: 20vh;
-   margin: 0;
+   width: 22vh;
+   height: 22vh;
+   margin: 2px;
    padding: 0;  
    display: flex;
    justify-content: center;
    align-items: center;
+   border-radius: 5px;
 }
 
-.gemimage {
-    width: 10vh;
-    height: 10vh;
+.gem-image {
+    width: 12.5vh;
+    height: 12.5vh;
 }
 
 .bomb-image {
-    width: 15vh;
-    height: 15vh;
+    width: 17vh;
+    height: 17vh;
 }

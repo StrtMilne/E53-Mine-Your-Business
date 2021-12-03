@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from "react";
 import TilesList from "../components/TilesList";
+import "./static/GameContainer.css"
+import GameHeader from "../components/GameHeader";
 
 const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         const defaultArray = [
@@ -36,9 +39,21 @@ const GameContainer = function () {
         setTiles(temp);
     }
 
+    const incrementScore = () => {
+        setScore(score + 1);
+    }
+
     return(
         <div>
-            <TilesList tiles={tiles} setClicked={setClicked}/>
+            <GameHeader />
+            <div className="game-container">
+                <div className="left">
+                    <p>Score: {score}</p>
+                </div>
+                <div classNmae="Right">
+                    <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} />
+                </div>
+            </div>
         </div>
     )
     
