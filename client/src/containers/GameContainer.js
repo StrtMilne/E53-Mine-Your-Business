@@ -11,10 +11,21 @@ const GameContainer = function () {
     const [numberMines, setNumberMines] = useState(0);
 
     useEffect(() => {
-        resetGame();
+        // disable clicking of the tiles grid after cashout button clicked & the cashout button
+        document.querySelector(".Tile-list").style.pointerEvents = "none";
+        document.querySelector(".cashout-button").style.pointerEvents = "none";
+        resetGame(numberMines);
     }, [])
 
-    const resetGame = () => {
+    // useEffect executed when numberMines state changes, it calls the resetGame method which will 
+    // start the game if numberMines is not = to 0 (meaning user selected from dropdown)
+    useEffect(() => {
+        console.log("use effect numberMines called");
+        console.log(numberMines) // testing
+        resetGame(numberMines);
+    }, [numberMines])
+
+    const resetGame = (numberMines) => {
         const defaultArray = [
             {value: false, clicked: false},
             {value: false, clicked: false},
@@ -33,9 +44,26 @@ const GameContainer = function () {
             {value: false, clicked: false},
             {value: false, clicked: false}
         ];
-        const bombIndex = Math.floor(Math.random() * 16);
-        defaultArray[bombIndex].value = true;
-        setTiles(defaultArray);
+        // if statement ensures that tiles only clickable when user has selected a number of mines
+        if (numberMines !== 0) {
+            console.log("unlock"); // testing
+            document.querySelector(".Tile-list").style.pointerEvents = "auto";
+            document.querySelector(".cashout-button").style.pointerEvents = "auto";
+            // create custom number of bombs
+            const bombIndexes = [];
+            for (let i=0; i<numberMines; i++) {
+                let bombIndex = Math.floor(Math.random() * 16); // generate random number 1-16
+                while (bombIndexes.includes(bombIndex)) {
+                    bombIndex = Math.floor(Math.random() * 16); // keep re-generating until number not already in list
+                }
+                bombIndexes.push(bombIndex)
+            }
+            console.log(bombIndexes.sort());
+
+            const bombIndex = Math.floor(Math.random() * 16);
+            defaultArray[bombIndex].value = true;
+        }
+        setTiles(defaultArray); // set under if statement so tiles will still render before user has made a choice
     }
 
     const setClicked = (index) => {
@@ -73,7 +101,8 @@ const GameContainer = function () {
 
     const handDropdownInput = (event) => {
         // console.log(event.target.value); // testing
-        const numberMines = event.target.value;
+        const dropdownValue = parseInt(event.target.value);
+        setNumberMines(dropdownValue);
     }
 
     return(
