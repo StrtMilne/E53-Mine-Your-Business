@@ -3,18 +3,22 @@ import "./static/Tile.css";
 import bombImage from "../assets/bomb.svg";
 import gemImage from "../assets/gem.svg";
 
-const Tile = ({tile, index, setClicked, incrementScore}) => {
+const Tile = ({tile, index, setClicked, incrementScore, bombClicked}) => {
     
     const handleClick = function(event) {
-        console.log("event:", event.target);
-        console.log("event:", event.target.title);
-        // ^ testing
+        // console.log("event:", event.target);
+        // console.log("event:", event.target.title);
+        // // ^ testing
         const id = event.target.id;
         if (!tile.clicked) {
             setClicked(id);
             if (event.target.title === "false") {
                 incrementScore();
-            } 
+            } else if (event.target.title === "true") {
+                // bomb clicked
+                console.log("bomb clicked"); // testing
+                bombClicked();
+            }
         }
     }
  

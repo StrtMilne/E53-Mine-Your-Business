@@ -7,8 +7,13 @@ const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
+    const [totalScore, setTotalScore] = useState(0);
 
     useEffect(() => {
+        resetGame();
+    }, [])
+
+    const resetGame = () => {
         const defaultArray = [
             {value: false, clicked: false},
             {value: false, clicked: false},
@@ -30,7 +35,7 @@ const GameContainer = function () {
         const bombIndex = Math.floor(Math.random() * 16);
         defaultArray[bombIndex].value = true;
         setTiles(defaultArray);
-    }, [])
+    }
 
     const setClicked = (index) => {
         let temp = tiles.map(t => t);
@@ -43,15 +48,32 @@ const GameContainer = function () {
         setScore(score + 1);
     }
 
+    const cashOut = () => {
+        console.log("cash out called"); // testing
+        setTotalScore(score);
+        setScore(0);
+        resetGame();
+    }
+
+    const bombClicked = () => {
+        setTimeout(() => {
+            setTotalScore(0);
+            setScore(0);
+            resetGame();
+        }, 2000);
+    }
+
     return(
         <div>
             <GameHeader />
             <div className="game-container">
                 <div className="left">
+                    <h2>Total Score: {totalScore}</h2>
                     <p>Score: {score}</p>
+                    <button onClick={cashOut}><strong>Cash Out: </strong>{score} point(s)</button>
                 </div>
                 <div className="Right">
-                    <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} />
+                    <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} />
                 </div>
             </div>
         </div>
