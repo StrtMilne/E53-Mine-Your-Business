@@ -10,21 +10,21 @@ const Tile = ({tile, index, setClicked, incrementScore}) => {
         console.log("event:", event.target.title);
         // ^ testing
         const id = event.target.id;
-        setClicked(id);
-        if (event.target.title === "false") {
-            incrementScore();
-        } else {
-            return;
-            //reset game added here ...
+        if (!tile.clicked) {
+            setClicked(id);
+            if (event.target.title === "false") {
+                incrementScore();
+            } 
         }
     }
  
     return(
-        <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
-            {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image"/> : null}
-            {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image"/> : null}
-        </div>
+            <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
+                {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image"/> : null}
+                {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image"/> : null}
+            </div>
     )
+
 };
 
 export default Tile;
