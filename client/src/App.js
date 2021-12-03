@@ -1,8 +1,10 @@
+import React from 'react';
 import './App.css';
+import GameContainer from "./containers/GameContainer.js";
 
 function App() {
   return (
-    <h1>Good morning</h1>
+    <GameContainer />
   );
 }
 
