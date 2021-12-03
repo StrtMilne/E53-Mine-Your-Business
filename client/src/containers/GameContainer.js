@@ -50,7 +50,7 @@ const GameContainer = function () {
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
             document.querySelector(".cashout-button").style.pointerEvents = "auto";
             // create custom number of bombs
-            const bombIndexes = [];
+            let bombIndexes = [];
             for (let i=0; i<numberMines; i++) {
                 let bombIndex = Math.floor(Math.random() * 16); // generate random number 1-16
                 while (bombIndexes.includes(bombIndex)) {
@@ -58,10 +58,12 @@ const GameContainer = function () {
                 }
                 bombIndexes.push(bombIndex)
             }
-            console.log(bombIndexes.sort());
-
-            const bombIndex = Math.floor(Math.random() * 16);
-            defaultArray[bombIndex].value = true;
+            // console.log(bombIndexes); // testing
+            // assign bombs at specified indexes from the array bombIndexes
+            for (let i=0; i<bombIndexes.length; i++) {
+                defaultArray[bombIndexes[i]].value = true;
+                defaultArray[bombIndexes[i]].clicked = true; // testing
+            }
         }
         setTiles(defaultArray); // set under if statement so tiles will still render before user has made a choice
     }
@@ -81,7 +83,7 @@ const GameContainer = function () {
         console.log("cash out called"); // testing
         setTotalScore(totalScore + score);
         setScore(0);
-        resetGame();
+        resetGame(numberMines);
     }
 
     const bombClicked = () => {
@@ -92,7 +94,7 @@ const GameContainer = function () {
         setTimeout(() => {
             setTotalScore(0);
             setScore(0);
-            resetGame();
+            resetGame(numberMines);
             // re-enable clicking of the tiles grid after has been processed & the cashout button
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
             document.querySelector(".cashout-button").style.pointerEvents = "auto";
