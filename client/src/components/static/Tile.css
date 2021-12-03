@@ -3,6 +3,18 @@
    width: 20vh;
    height: 20vh;
    margin: 0;
-   padding: 0;
-   
+   padding: 0;  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.gem-image {
+    width: 10vh;
+    height: 10vh;
+}
+
+.bomb-image {
+    width: 15vh;
+    height: 15vh;
 }
