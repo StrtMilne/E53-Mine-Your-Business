@@ -44,6 +44,11 @@ const GameContainer = function () {
             {value: false, clicked: false},
             {value: false, clicked: false}
         ];
+        // makes sure user can't play with no bombs
+        if (numberMines === 0) {
+            document.querySelector(".Tile-list").style.pointerEvents = "none";
+            document.querySelector(".cashout-button").style.pointerEvents = "none";   
+        }
         // if statement ensures that tiles only clickable when user has selected a number of mines
         if (numberMines !== 0) {
             console.log("unlock"); // testing
@@ -62,7 +67,7 @@ const GameContainer = function () {
             // assign bombs at specified indexes from the array bombIndexes
             for (let i=0; i<bombIndexes.length; i++) {
                 defaultArray[bombIndexes[i]].value = true;
-                defaultArray[bombIndexes[i]].clicked = true; // testing
+                // defaultArray[bombIndexes[i]].clicked = true; // testing
             }
         }
         setTiles(defaultArray); // set under if statement so tiles will still render before user has made a choice
