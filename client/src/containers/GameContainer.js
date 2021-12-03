@@ -33,7 +33,6 @@ const GameContainer = function () {
     }, [])
 
     const setClicked = (index) => {
-        console.log("set click method called");
         let temp = tiles.map(t => t);
         console.log(temp)
         temp[index].clicked = true;
