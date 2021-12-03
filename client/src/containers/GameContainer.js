@@ -50,7 +50,7 @@ const GameContainer = function () {
                 <div className="left">
                     <p>Score: {score}</p>
                 </div>
-                <div classNmae="Right">
+                <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} />
                 </div>
             </div>
