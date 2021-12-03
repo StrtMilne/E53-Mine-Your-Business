@@ -6,23 +6,29 @@ import gemImage from "../assets/gem.svg";
 const Tile = ({tile, index, setClicked, incrementScore}) => {
     
     const handleClick = function(event) {
-        console.log("event:", event.target);
-        console.log("event:", event.target.title);
+        // console.log("event:", event.target);
+        // console.log("event:", event.target.title);
         // ^ testing
-        const id = event.target.id;
+        const id = event.target.title;
         if (!tile.clicked) {
             setClicked(id);
-            if (event.target.title === "false") {
+            console.log(event.target)
+            if (event.target.id === "false") {
+                console.log(event.target)
                 incrementScore();
             } 
         }
     }
  
     return(
-            <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
-                {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image"/> : null}
-                {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image"/> : null}
-            </div>
+           <>
+             <div className="tile">
+               <div title={index} id={tile.value.toString()} className="individual_tile"  onClickCapture={handleClick} style={{border: "1px solid black"}}>
+                {tile.clicked && !tile.value ? <img src={gemImage} className="gem-image" alt="gem"/> : null}
+                {tile.clicked && tile.value ? <img src={bombImage} className="bomb-image" alt="bomb"/> : null}
+               </div>
+             </div>
+           </>
     )
 
 };

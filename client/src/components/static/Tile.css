@@ -8,8 +8,11 @@
    justify-content: center;
    align-items: center;
    border-radius: 5px;
-   /* pointer-events: none; */
-   
+   pointer-events:var();
+      
+}
+.tile{
+    /* pointer-events: none; */
 }
 
 /* .individual_tile:hover {
