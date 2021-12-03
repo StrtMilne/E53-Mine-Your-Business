@@ -1,4 +1,5 @@
 import React from "react";
+import "./static/Tile.css";
 
 const Tile = ({tile, index}) => {
     
@@ -8,7 +9,7 @@ const Tile = ({tile, index}) => {
     }
  
     return(
-        <div id={index} title={tile.toString()} className="individual_tile" onClick={handleClick} style={{border: "1px solid black"}}>
+        <div id={index} title={tile.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
            {tile.toString()}
         </div>
     )

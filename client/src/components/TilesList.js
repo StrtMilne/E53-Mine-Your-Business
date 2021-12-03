@@ -1,5 +1,6 @@
 import React from "react";
 import Tile from "./Tile";
+import "./static/TileList.css";
 
 const TilesList = function ({tiles}) {
 
