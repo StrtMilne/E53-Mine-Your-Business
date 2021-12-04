@@ -16,10 +16,7 @@ const client = new Client ({
 
 client.connect()
     // .then((client) => {
-    //     const db = client.db('hotel')
-    //     const bookingsCollection = db.collection('bookings');
-    //     const bookingsRouter = createRouter(bookingsCollection);
-    //     app.use('/api/bookings', bookingsRouter);
+    //     app.use('/api/scores', client);
     // })
     // .catch(console.err);
 
