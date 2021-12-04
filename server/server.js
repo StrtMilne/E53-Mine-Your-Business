@@ -15,17 +15,20 @@ const client = new Client ({
 })
 
 client.connect()
-    .then(() => {
-        console.log("connected successfully")
-    })
-    .catch(console.err);
+    // .then((client) => {
+    //     const db = client.db('hotel')
+    //     const bookingsCollection = db.collection('bookings');
+    //     const bookingsRouter = createRouter(bookingsCollection);
+    //     app.use('/api/bookings', bookingsRouter);
+    // })
+    // .catch(console.err);
 
-app.get("/scores", (req, res) => {
+app.get("/api/scores", (req, res) => {
     client.query("SELECT * FROM high_scores;")
     .then(results => res.send(results.rows));
 })
 
-app.post("/scores", (req, res) => {
+app.post("/api/scores", (req, res) => {
     let p_name = req.body.player_name;
     let p_score = req.body.score;
     client.query(`INSERT INTO high_scores (player_name, score) VALUES ('${p_name}', ${p_score}) RETURNING *;`)
