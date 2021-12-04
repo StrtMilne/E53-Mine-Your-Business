@@ -34,7 +34,7 @@ const GameContainer = function () {
 
     const setClicked = (index) => {
         let temp = tiles.map(t => t);
-        console.log(temp)
+        // console.log(temp)
         temp[index].clicked = true;
         setTiles(temp);
     }

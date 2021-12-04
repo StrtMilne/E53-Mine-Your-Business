@@ -8,8 +8,38 @@
    justify-content: center;
    align-items: center;
    border-radius: 5px;
-   pointer-events:var();
+   pointer-events:hidden;
+   animation-name: animate;
+   animation-duration: 0.8;
+   animation-direction: alternate;
+   animation-iteration-count: infinite;
       
+}
+
+@keyframes animate {
+    0%{
+        filter: background-color(1px 0px 1px #fff))
+        background-color(0px 0px 5px rgb(58, 110, 75)
+        background-color(0px 0px 10px rgb(25, 107, 52))
+        background-color(0px 0px 20px rgb(13, 109, 45)))
+        background-color(0px 0px 30px rgb(0, 110, 37))
+
+    }
+    100%{
+        filter:background-color(0px 0px 5px rgb(58, 110, 75)
+        background-color(0px 0px 10px rgb(25, 107, 52))
+        background-color(0px 0px 30px rgb(13, 109, 45)))
+        background-color(0px 0px 50px rgb(0, 110, 37))
+
+    }
+}
+/* .individual_tile:hover{
+    visibility: hidden;
+    background-color: aquamarine;
+} */
+.toolTipText{
+    position:relative;
+
 }
 .tile{
     /* pointer-events: none; */
