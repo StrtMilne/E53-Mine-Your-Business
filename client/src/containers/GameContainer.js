@@ -49,6 +49,16 @@ const GameContainer = function () {
             <div className="game-container">
                 <div className="left">
                     <p>Score: {score}</p>
+                    <button class="button">button</button>
+                    <label>
+                        4 x 4 grid
+                        <input type="radio" name="grid-size"checked/>
+                    </label>
+                    <label>
+                        5x5 grid
+                        <input type="radio"name="grid-size" />
+
+                    </label>
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} />
