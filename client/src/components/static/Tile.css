@@ -67,10 +67,10 @@
 }
 @keyframes animate-bomb{
   0%{
-    transform:scale(0.2) ;
+    transform:scale(0.09) ;
   }
   100%{
-    transform:scale(0.3)
+    transform:scale(0.15)
   }
   
 }

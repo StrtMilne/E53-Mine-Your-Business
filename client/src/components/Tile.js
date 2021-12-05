@@ -1,6 +1,6 @@
 import React from "react";
 import "./static/Tile.css";
-import bombImage from "../assets/bomb.svg";
+import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 
 const Tile = ({tile, index, setClicked, incrementScore}) => {
