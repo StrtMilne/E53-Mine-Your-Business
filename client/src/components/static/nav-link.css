@@ -1,0 +1,9 @@
+.nav-link{
+    background-color: black;
+    height: 20vh;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 10vh;
+
+}
