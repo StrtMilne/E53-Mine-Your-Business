@@ -9,30 +9,22 @@
    align-items: center;
    border-radius: 5px;
    
-   animation: gem;
-   animation-duration: 5s;
-   animation-iteration-count: infinite;
-   animation-direction: alternative;
+   animation: background 10s infinite alternate;
+   
    background-color:rgb(2, 97, 2)      }
-/* 
+
 @keyframes background {
     0% {
-        background: #292929;
+        border-color: #ffffff;
+        filter: drop-shadow(0px 0px 2px #fff);
       }
-      25% {
-        background: #025c2a;
-      }
-      50% {
-        background: #000002;
-      }
-      75% {
-        background: #025c2a;
-      }
+      
       100% {
-        background: #3a3a3a;
+        border-color: #3a3a3a;
+        filter:drop-shadow(0px 0px 10px #fff)
       }
 
-    } */
+    }
 /* .individual_tile:hover{
     visibility: hidden;
     background-color: aquamarine;
