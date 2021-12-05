@@ -1,5 +1,5 @@
 .individual_tile {
-   background-color: aquamarine;
+   /* background-color: aquamarine; */
    width: 22vh;
    height: 22vh;
    margin: 2px;
@@ -9,30 +9,30 @@
    align-items: center;
    border-radius: 5px;
    pointer-events:hidden;
-   animation-name: animate;
-   animation-duration: 0.8;
-   animation-direction: alternate;
+   animation: background;
+   animation-duration: 5s;
    animation-iteration-count: infinite;
-      
-}
+   animation-direction: alternative;
+   background-color:rgb(2, 97, 2)      }
+/* 
+@keyframes background {
+    0% {
+        background: #292929;
+      }
+      25% {
+        background: #025c2a;
+      }
+      50% {
+        background: #000002;
+      }
+      75% {
+        background: #025c2a;
+      }
+      100% {
+        background: #3a3a3a;
+      }
 
-@keyframes animate {
-    0%{
-        filter: background-color(1px 0px 1px #fff))
-        background-color(0px 0px 5px rgb(58, 110, 75)
-        background-color(0px 0px 10px rgb(25, 107, 52))
-        background-color(0px 0px 20px rgb(13, 109, 45)))
-        background-color(0px 0px 30px rgb(0, 110, 37))
-
-    }
-    100%{
-        filter:background-color(0px 0px 5px rgb(58, 110, 75)
-        background-color(0px 0px 10px rgb(25, 107, 52))
-        background-color(0px 0px 30px rgb(13, 109, 45)))
-        background-color(0px 0px 50px rgb(0, 110, 37))
-
-    }
-}
+    } */
 /* .individual_tile:hover{
     visibility: hidden;
     background-color: aquamarine;
