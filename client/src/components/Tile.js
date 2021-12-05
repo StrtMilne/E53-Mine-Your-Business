@@ -8,8 +8,8 @@ import bombSound from "./static/gun.wav";
 
 const Tile = ({tile, index, setClicked, incrementScore}) => {
     
-    const [play]=useSound(coinSound);
-    const[play2]=useSound(bombSound)
+    const [playCoinSound]=useSound(coinSound);
+    const[playBombSound]=useSound(bombSound)
 
     const handleClick = function(event) {
         console.log("event:", event.target);
@@ -18,11 +18,11 @@ const Tile = ({tile, index, setClicked, incrementScore}) => {
         const id = event.target.id;
         if (!tile.clicked) {
             setClicked(id);
-            play();
             if (event.target.title === "false") {
-                incrementScore();  
+                incrementScore(); 
+                playCoinSound(); 
             } else{
-                play2()
+                playBombSound();
             }
         }  
     }
