@@ -98,6 +98,7 @@ const GameContainer = function () {
         document.querySelector(".Tile-list").style.pointerEvents = "none";
         document.querySelector(".cashout-button").style.pointerEvents = "none";
         // 2 second delay before resetting grid after bomb click
+        // number of lives is 3 when lives = 0 then Total score will reset to 0
         setTimeout(() => {
             if(numberOfLives===1){
                 setTotalScore(0);
