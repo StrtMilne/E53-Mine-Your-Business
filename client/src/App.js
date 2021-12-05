@@ -1,6 +1,6 @@
 import React ,{Component}from 'react';
 import './App.css';
-import GameHeader from "./components/Home.js";
+import GameHeader from "./components/GameHeader.js";
 import {BrowserRouter, Route, Routes, useHistory} from 'react-router-dom' 
 // import GameHeader from './components/GameHeader';
 import Navigation from './components/Navigation';

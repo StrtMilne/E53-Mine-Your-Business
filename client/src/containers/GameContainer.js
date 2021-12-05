@@ -49,7 +49,6 @@ const GameContainer = function () {
             <div className="game-container">
                 <div className="left">
                     <p>Score: {score}</p>
-                    <button class="button">button</button>
                     <label for>
                         4 x 4 grid
                         <input type="radio" name="grid-size"checked/>

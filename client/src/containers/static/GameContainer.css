@@ -1,7 +1,8 @@
 .game-container {
     display: flex;
     justify-content: space-around;
-    background-color: rgb(117, 117, 117);
+    background-color: black;
+    color:whitesmoke
 }
 
 .left {
