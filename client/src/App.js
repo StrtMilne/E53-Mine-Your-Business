@@ -11,7 +11,7 @@ class App extends Component {
   return (
     <BrowserRouter>
       
-      <Navigation />
+      
             <Routes>
              <Route path="/" element={<GameHeader/>} exact/>
              <Route path="/game" element={<GameContainer/>}/>

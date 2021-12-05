@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
 import GameHeader from "../components/GameHeader";
+import Navigation from "../components/Navigation";
 
 const GameContainer = function () {
     
@@ -46,6 +47,7 @@ const GameContainer = function () {
     return(
         <div>
             {/* <GameHeader /> */}
+            <Navigation />
             <div className="game-container">
                 <div className="left">
                     <p>Score: {score}</p>
