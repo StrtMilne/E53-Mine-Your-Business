@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Routes, useHistory} from 'react-router-dom'
 // import GameHeader from './components/GameHeader';
 import Navigation from './components/Navigation';
 import GameContainer from './containers/GameContainer.js';
-import GameHome from './components/Home.js';
 
 class App extends Component {
   render(){
@@ -14,7 +13,7 @@ class App extends Component {
       
       <Navigation />
             <Routes>
-             <Route path="/" element={<GameHome/>} exact/>
+             <Route path="/" element={<GameHeader/>} exact/>
              <Route path="/game" element={<GameContainer/>}/>
             <Route component={Error}/>
            </Routes>

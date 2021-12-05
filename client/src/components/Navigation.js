@@ -6,12 +6,14 @@ const Navigation = () => {
     return (
        <div className="nav-link">
           <NavLink to="/">
-              <button className="button">Home</button>
+              <button className="home-button">Home</button>
           </NavLink>
           <NavLink to="/game">
-              <button>Game</button>
+              <button className="game-button">Game</button>
           </NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/contact">
+          <button className="roulette-button">Russian Roulette</button>
+          </NavLink>
        </div>
     );
 }
