@@ -7,10 +7,12 @@ const TilesList = function ({tiles, setClicked, incrementScore, bombClicked, the
 
     const tileItems = tiles.map((tile, index) => {
         return <Tile key={index} tile={tile} index={index} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
-    })
-    
+    });
+
+    const gridLength=Math.sqrt(tiles.length);
+
     return(
-        <div className="Tile-list">
+        <div className="Tile-list" style={{gridTemplateColumns: `repeat( ${gridLength}, auto)`, gridTemplateRows: `repeat( ${gridLength}, auto)`}}>
             {tileItems}
         </div>
     );
