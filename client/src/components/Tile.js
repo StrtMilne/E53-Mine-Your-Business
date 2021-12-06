@@ -9,9 +9,11 @@ import bombSound from "./static/gun.wav";
 
 
 const Tile = ({tile, index, setClicked, incrementScore, bombClicked, theme}) => {
+
+    console.log(theme);
     
-    const [playCoinSound]=useSound(coinSound);
-    const[playBombSound]=useSound(bombSound)
+    const [playCoinSound] = useSound(theme.goodSound);
+    const [playBombSound] = useSound(theme.badSound);
 
     const handleClick = function(event) {
         // console.log("event:", event.target);
