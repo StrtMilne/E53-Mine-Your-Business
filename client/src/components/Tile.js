@@ -20,12 +20,14 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked, theme}) => 
         const id = event.target.id;
         if (!tile.clicked) {
             setClicked(id);
-            console.log(event.target)
-                if (event.target.title === "false") {
+            console.log(event.target.attributes)
+                if (event.target.attributes["data-value"].value === "false") {
+                console.log("gem detected");
                 console.log(event.target.name)
                 incrementScore();
                 playCoinSound(); 
-            } else if (event.target.title === "true") {
+            } else if (event.target.attributes["data-value"].value === "true") {
+                console.log("bomb detected");
                 // bomb clicked
                 bombClicked();
                 playBombSound();
@@ -45,7 +47,7 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked, theme}) => 
              
 //            </>
 // =======
-            <div id={index} title={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
+            <div id={index} data-value={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
                 {tile.clicked && !tile.value ? <img src={theme.goodImage} className={theme.goodClass} alt="gem"/> : null}
                 {tile.clicked && tile.value ? <img src={theme.badImage} className={theme.badClass} alt="bomb"/> : null}
 

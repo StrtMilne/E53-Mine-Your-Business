@@ -22,8 +22,8 @@ Advanced Extension:
 - Instructions for main page
 - Create a levels page so you can play 1 bomb, then 2 bombs etc...
 
-Possible weekend tasks:
-    add scoreboard high scores api & database
+Possible weekend tasks: 
+    add scoreboard high scores api & database ✔
     set up scores in game ✔
     researching react router for second page ✔
     add ability for user to choose number of mines ✔

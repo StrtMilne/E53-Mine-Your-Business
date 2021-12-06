@@ -148,6 +148,7 @@ const GameContainer = function () {
         document.querySelector(".cashout-button").style.pointerEvents = "none";
         // 2 second delay before resetting grid after bomb click
         // number of lives is 3 when lives = 0 then Total score will reset to 0
+        setTotalScore(0);
         setTimeout(() => {
             if(numberOfLives === 1){
                 // submit total score to server (high-score list)
@@ -169,7 +170,6 @@ const GameContainer = function () {
                 setNumberOfLives(numberOfLives-1);
             }
             setScore(0);
-            setTotalScore(0);
             resetGame(numberMines);
             // re-enable clicking of the tiles grid after has been processed & the cashout button
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
