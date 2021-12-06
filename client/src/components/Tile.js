@@ -50,7 +50,6 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked, theme}) => 
             <div id={index} data-value={tile.value.toString()} className="individual_tile"  onClick={handleClick} style={{border: "1px solid black"}}>
                 {tile.clicked && !tile.value ? <img src={theme.goodImage} className={theme.goodClass} alt="gem"/> : null}
                 {tile.clicked && tile.value ? <img src={theme.badImage} className={theme.badClass} alt="bomb"/> : null}
-
             </div>
     )
 };

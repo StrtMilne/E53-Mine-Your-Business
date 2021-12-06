@@ -18,7 +18,7 @@ Advanced Extension:
 - Choose grid size
 - Change game logic to make it more challenging ✔
 - Add heart graphics for the lives
-- PDA tasks
+- PDA tasks 
 - Instructions for main page
 - Create a levels page so you can play 1 bomb, then 2 bombs etc...
 
