@@ -7,6 +7,7 @@ import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
+import PopUp from "../components/PopUp";
 
 const GameContainer = function () {
     
@@ -17,6 +18,7 @@ const GameContainer = function () {
     const [numberMines, setNumberMines] = useState(0);
     const [numberOfLives,setNumberOfLives] = useState(0);
     const [highScores, setHighScores] = useState([]);
+    const [endGame, setEndGame] = useState(false);
 
     const getHighScores = function() {
         getScores()
@@ -117,21 +119,22 @@ const GameContainer = function () {
         
         setTimeout(() => { 
             if (numberOfLives === 1) {
-                // submit total score to server (high-score list)
-                let playerName = prompt("Enter your name for the scoreboard!");
-                if (playerName != null) {
-                    console.log(playerName)
-                    // send playerName and totalScore to the server...
-                    const data = {
-                        "player_name": playerName,
-                        "score": totalScore
-                    };
-                    // send new high score to database
-                    postScore(data);
-                }
+                setEndGame(true);
+                // // submit total score to server (high-score list)
+                // let playerName = prompt("Enter your name for the scoreboard!");
+                // if (playerName != null) {
+                //     console.log(playerName)
+                //     // send playerName and totalScore to the server...
+                //     const data = {
+                //         "player_name": playerName,
+                //         "score": totalScore
+                //     };
+                //     // send new high score to database
+                //     postScore(data);
+                // }
                 // resetting the game
                 setNumberOfLives(3);
-                setTotalScore(0);
+                // setTotalScore(0);
             } else {
                 setNumberOfLives(numberOfLives - 1);
             }
@@ -139,7 +142,6 @@ const GameContainer = function () {
             resetGame(numberMines);
         }, 500);
         
-
     }
 
     const bombClicked = () => {
@@ -151,19 +153,19 @@ const GameContainer = function () {
         setTotalScore(0);
         setTimeout(() => {
             if(numberOfLives === 1){
-                // submit total score to server (high-score list)
-                let playerName = prompt("Enter your name for the scoreboard!");
-                if (playerName != null) {
-                    console.log(playerName)
-                    // send playerName and totalScore to the server...
-                    const data = {
-                        "player_name": playerName,
-                        "score": totalScore
-                    };
-                    // send new high score to database
-                    postScore(data);
-                }
-
+                setEndGame(true);
+                // // submit total score to server (high-score list)
+                // let playerName = prompt("Enter your name for the scoreboard!");
+                // if (playerName != null) {
+                //     console.log(playerName)
+                //     // send playerName and totalScore to the server...
+                //     const data = {
+                //         "player_name": playerName,
+                //         "score": totalScore
+                //     };
+                //     // send new high score to database
+                //     postScore(data);
+                // }
                 // resetting the game
                 setNumberOfLives(3);
             } else {
@@ -175,6 +177,11 @@ const GameContainer = function () {
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
             document.querySelector(".cashout-button").style.pointerEvents = "auto";
         }, 2000);
+    }
+
+    const handleNameSubmit = () => {
+        setEndGame(false);
+        setTotalScore(0);
     }
 
     const handDropdownInput = (event) => {
@@ -238,6 +245,11 @@ const GameContainer = function () {
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
                 </div>
+                {endGame ? 
+                <div className="popup">
+                    <PopUp totalScore={totalScore} handleNameSubmit={handleNameSubmit}/>
+                </div>
+                : null}
             </div>
         </div>
     )  

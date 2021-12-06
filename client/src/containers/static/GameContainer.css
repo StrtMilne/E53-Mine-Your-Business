@@ -46,3 +46,15 @@
     filter:blur(2em)
 
 }
+
+.popup {
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display:block;
+    background-color: rgba(126, 126, 126, 0.756);
+    border: 1px solid white;
+    color:white; 
+}
