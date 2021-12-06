@@ -6,7 +6,7 @@ import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
-import { postScore } from "../ScoresService";
+import { postScore, getScores } from "../ScoresService";
 
 const GameContainer = function () {
     
@@ -15,9 +15,20 @@ const GameContainer = function () {
     const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image"});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
-    const [numberOfLives,setNumberOfLives]=useState(0);
+    const [numberOfLives,setNumberOfLives] = useState(0);
+    const [highScores, setHighScores] = useState([]);
+
+    const getHighScores = function() {
+        getScores()
+        // .then(response => console.log(response[0].score))
+        .then(response => response.sort(function(a, b) {
+            return b.score - a.score;
+        }))
+        .then(data => setHighScores(data))
+    }
 
     useEffect(() => {
+        getHighScores();
         setNumberOfLives(3);
         // disable clicking of the tiles grid after cashout button clicked & the cashout button
         document.querySelector(".Tile-list").style.pointerEvents = "none";
@@ -94,7 +105,6 @@ const GameContainer = function () {
 
 
     //increasing the bounty for the risk taken 
-
     const incrementScore = () => {
         // updated dynamic score from number mines
         setScore(score + numberMines);
@@ -124,6 +134,7 @@ const GameContainer = function () {
                         "player_name": playerName,
                         "score": totalScore
                     };
+                    // send new high score to database
                     postScore(data);
                 }
 
@@ -148,15 +159,10 @@ const GameContainer = function () {
     }
 
     // database functions
-
-
-
-
-
     return(
         <div>
             {/* <GameHeader /> */}
-            <Navigation />
+            <Navigation highScores={highScores} />
             <div className="game-container">
                 <div className="left">
 

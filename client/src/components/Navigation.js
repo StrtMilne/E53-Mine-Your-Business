@@ -2,7 +2,7 @@ import React from 'react';
 import "./static/nav-link.css";
 import { NavLink } from 'react-router-dom';
  
-const Navigation = () => {
+const Navigation = ({highScores}) => {
     return (
        <div className="nav-link">
           <NavLink to="/">
@@ -11,10 +11,10 @@ const Navigation = () => {
           <NavLink to="/game">
               <button className="game-button">Game</button>
           </NavLink>
-          <NavLink to="/contact">
-          <button className="roulette-button">Russian Roulette</button>
+          <NavLink to="/highscores">
+          <button className="highscore-button" highScores={highScores}>High Scores</button>
           </NavLink>
-       </div>
+       </div> 
     );
 }
  
