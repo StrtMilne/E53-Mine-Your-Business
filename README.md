@@ -17,7 +17,6 @@ Advanced Extension:
 
 - Add animations to flipped/flipping cards
 
-
 Possible weekend tasks:
     add scoreboard high scores api & database
     set up scores in game
@@ -31,4 +30,3 @@ Possible weekend tasks:
     STUART - psql database for highscores (& themes?)
     IAIN :- style title
 Reminder: create branch off develop & don't merge into develop
-
