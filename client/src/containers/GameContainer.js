@@ -15,7 +15,7 @@ const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
-    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, class: "mines", goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
     const [numberOfLives,setNumberOfLives] = useState(0);
@@ -197,7 +197,7 @@ const GameContainer = function () {
         <div>
             {/* <GameHeader /> */}
             <Navigation highScores={highScores} />
-            <div className="game-container">
+            <div className={theme.class}>
                 <div className="left">
 
 {/* // <<<<<<< iain_develop
@@ -244,7 +244,7 @@ const GameContainer = function () {
                     {/* <p><{highScores}</p> */}
 
                 </div>
-                <div className="Right">
+                <div className="right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
                 </div>
                 {endGame ? 

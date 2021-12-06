@@ -1,17 +1,28 @@
-.game-container {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.mines {
     display: flex;
     justify-content: space-around;
     background-color: black;
     color:whitesmoke
 }
 
+.xmas {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(119, 1, 1);
+    color:whitesmoke;
+    font-family: 'Pacifico', cursive;
+}
+
 .left {
-    width: 20vw;
+    width: 30vw;
 }
 
 .right {
-    width: 80vw;
+    width: 70vw;
 }
+
 
 .button{
     background-color: rgb(117, 117, 117);
@@ -59,3 +70,36 @@
     color:white; 
 }
 
+.xmas .right .Tile-list .individual_tile {
+   width: 22vh;
+   height: 22vh;
+   margin: 2px;
+   padding: 0;  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5px;
+   background-color:rgb(3, 2, 73)      
+}
+
+button {
+    background-color: rgb(2, 97, 2);
+    padding: 2px 3px;
+    border:rgb(0, 27, 0) solid 2px;
+}
+
+select {
+    background-color: rgb(94, 133, 94);
+}
+
+.xmas .left button {
+    background-color: rgb(9, 0, 94);
+    color: white;
+    padding: 2px 3px;
+    border:rgb(0, 27, 0) solid 2px;
+}
+
+.xmas .left select {
+    background-color: rgb(12, 2, 97);
+    color: white;
+}

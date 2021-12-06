@@ -8,10 +8,11 @@ import bombSound from "./static/gun.wav";
 
 const ThemeSelect = function ({setChosenTheme}) {
 
-    const mines = {goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound};
+    const mines = {goodImage: gemImage, badImage: bombImage, class: "mines" ,goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound};
     const christmas = {
         goodImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/12/Die-Hard-Is-A-Christmas-Movie-Debate-Ended-By-The-Movie---s-Director.jpg", 
         badImage: "https://static2.cbrimages.com/wordpress/wp-content/uploads/2021/02/hans-death.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5",
+        class: "xmas",
         goodClass: "mcclane-image",
         badClass: "hans-image",
         goodSound: coinSound,
