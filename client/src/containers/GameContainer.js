@@ -197,7 +197,7 @@ const GameContainer = function () {
 
     // database functions
     return(
-        <div>
+        <div className="all-game-container">
             {/* <GameHeader /> */}
             <Navigation highScores={highScores} />
             <div className="game-container">
@@ -216,9 +216,8 @@ const GameContainer = function () {
 //                     </label>
 // ======= */} 
                     <h2>Total Score: {totalScore}</h2>
-                    <br />
                     <div className="lives-data">
-                    <h2>Number of Lives:</h2>
+                    <h2>Lives:</h2>
                     <div className="heart-images">
                         {numberOfLives===3 ? 
                             <div>
@@ -239,9 +238,11 @@ const GameContainer = function () {
                     </div>
                     </div>
                     <br />
-                    <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
-                    <br /><br /><br /><br /><br /><br />
+                    <p>Current Points: {score}</p>
+                    <br />
+                    <hr />
+                    <br /><br />
                     {/* <p>Number Of Mines:</p> */}
                     <label htmlFor="numberMines">Number Of Mines: </label>
                     <select name="numberMines" id="numberMines" onInput={handDropdownInput}>
@@ -262,10 +263,9 @@ const GameContainer = function () {
                         <option value={14}>14</option>
                         <option value={15}>15</option>
                     </select>
-                    <br /><br /><br /><br />
+                    <br /><br />
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
                     {/* <p><{highScores}</p> */}
-
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
