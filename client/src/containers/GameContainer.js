@@ -6,6 +6,7 @@ import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
+import { postScore } from "../ScoresService";
 
 const GameContainer = function () {
     
@@ -119,6 +120,11 @@ const GameContainer = function () {
                 if (playerName != null) {
                     console.log(playerName)
                     // send playerName and totalScore to the server...
+                    const data = {
+                        "player_name": playerName,
+                        "score": totalScore
+                    };
+                    postScore(data);
                 }
 
                 // resetting the game
@@ -140,6 +146,12 @@ const GameContainer = function () {
         const dropdownValue = parseInt(event.target.value);
         setNumberMines(dropdownValue);
     }
+
+    // database functions
+
+
+
+
 
     return(
         <div>
