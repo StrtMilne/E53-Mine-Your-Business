@@ -22,14 +22,11 @@ const Tile = ({tile, index, setClicked, incrementScore, bombClicked, theme}) => 
         const id = event.target.id;
         if (!tile.clicked) {
             setClicked(id);
-            console.log(event.target.attributes)
                 if (event.target.attributes["data-value"].value === "false") {
-                console.log("gem detected");
-                console.log(event.target.name)
+                
                 incrementScore();
                 playCoinSound(); 
             } else if (event.target.attributes["data-value"].value === "true") {
-                console.log("bomb detected");
                 // bomb clicked
                 bombClicked();
                 playBombSound();

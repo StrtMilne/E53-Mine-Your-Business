@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import HighScoreItem from "../components/HighScoreItem.js";
 import { getScores } from "../ScoresService.js";
+import "./static/HighScores.css"
+import Navigation from "../components/Navigation.js";
+
 
 const HighScores = () => {  
 
@@ -26,9 +29,12 @@ const HighScores = () => {
     })
 
     return(
-        <ol>
+       <div className="high-scores-list" >
+       <Navigation/>
+        <ol className="high-scores-list">
             {highScore_nodes}
         </ol>
+       </div> 
     )
 
 }

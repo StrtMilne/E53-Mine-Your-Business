@@ -10,14 +10,13 @@ import bombSound from "../components/static/gun.wav";
 import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
 import PopUp from "../components/PopUp";
-import ReactDOM from 'react-dom'
 import Snowfall from 'react-snowfall'
 
 const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
-    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+    const [theme, setTheme] = useState({name:"mines",goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
     const [numberOfLives,setNumberOfLives] = useState(0);
@@ -107,6 +106,9 @@ const GameContainer = function () {
 
     const setChosenTheme = (passedTheme) => {
         setTheme(passedTheme);
+        console.log("hi")
+        
+        console.log(theme.name)
     }
 
 
@@ -197,11 +199,11 @@ const GameContainer = function () {
     // database functions
     return(
         <div>
-            
-            {/* <GameHeader /> */}
+            {theme.name.length > 5 &&
+            <Snowfall/>}
             <Navigation highScores={highScores} />
             <div className="game-container">
-            <Snowfall />
+                
                 <div className="left">
           
 {/* // <<<<<<< iain_develop
