@@ -6,6 +6,7 @@ import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
+import { postScore, getScores } from "../ScoresService";
 
 const GameContainer = function () {
     
@@ -14,9 +15,20 @@ const GameContainer = function () {
     const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image"});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
-    const [numberOfLives,setNumberOfLives]=useState(0);
+    const [numberOfLives,setNumberOfLives] = useState(0);
+    const [highScores, setHighScores] = useState([]);
+
+    const getHighScores = function() {
+        getScores()
+        // .then(response => console.log(response[0].score))
+        .then(response => response.sort(function(a, b) {
+            return b.score - a.score;
+        }))
+        .then(data => setHighScores(data))
+    }
 
     useEffect(() => {
+        getHighScores();
         setNumberOfLives(3);
         // disable clicking of the tiles grid after cashout button clicked & the cashout button
         document.querySelector(".Tile-list").style.pointerEvents = "none";
@@ -93,7 +105,6 @@ const GameContainer = function () {
 
 
     //increasing the bounty for the risk taken 
-
     const incrementScore = () => {
         // updated dynamic score from number mines
         setScore(score + numberMines);
@@ -119,6 +130,12 @@ const GameContainer = function () {
                 if (playerName != null) {
                     console.log(playerName)
                     // send playerName and totalScore to the server...
+                    const data = {
+                        "player_name": playerName,
+                        "score": totalScore
+                    };
+                    // send new high score to database
+                    postScore(data);
                 }
 
                 // resetting the game
@@ -141,10 +158,11 @@ const GameContainer = function () {
         setNumberMines(dropdownValue);
     }
 
+    // database functions
     return(
         <div>
             {/* <GameHeader /> */}
-            <Navigation />
+            <Navigation highScores={highScores} />
             <div className="game-container">
                 <div className="left">
 
@@ -161,6 +179,7 @@ const GameContainer = function () {
 //                     </label>
 // ======= */} 
                     <h2>Total Score: {totalScore}</h2>
+
                     <br /><br />
                     <h2>Number of Lives: {numberOfLives}</h2>
                     <br /><br />
@@ -188,6 +207,7 @@ const GameContainer = function () {
                     <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
+                    {/* <p><{highScores}</p> */}
 
                 </div>
                 <div className="Right">

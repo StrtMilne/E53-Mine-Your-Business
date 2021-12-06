@@ -6,5 +6,5 @@ CREATE TABLE high_scores (
     id SERIAL PRIMARY KEY
 );
 
- GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;
- GRANT USAGE SELECT ON SEQUENCE high_scores_id_seq TO postgres;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;
+GRANT USAGE, SELECT ON SEQUENCE high_scores_id_seq TO postgres;

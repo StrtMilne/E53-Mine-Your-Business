@@ -9,7 +9,7 @@ MVP:
 
 Extensions:
 
-- Add a server to save user scores to a high score list
+- Add a server to save user scores to a high score list ✔
 - Enable user to set the number of mines ✔
 - Add sound responses to clicks ✔
 - Add lives ✔
