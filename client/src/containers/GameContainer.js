@@ -3,7 +3,7 @@ import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
 import GameHeader from "../components/GameHeader";
 import ThemeSelect from "../components/ThemeSelect";
-import bombImage from "../assets/bomb.svg";
+import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
 
@@ -138,12 +138,8 @@ const GameContainer = function () {
             <Navigation />
             <div className="game-container">
                 <div className="left">
-<<<<<<< HEAD
-{/* // iain_develop
-=======
 
-// <<<<<<< iain_develop
->>>>>>> e506323792c82acb0c47372d3c5887a9ad497595
+{/* // <<<<<<< iain_develop
 //                     <p>Score: {score}</p>
 //                     <label for>
 //                         4 x 4 grid
@@ -154,7 +150,7 @@ const GameContainer = function () {
 //                         <input type="radio"name="grid-size" />
 
 //                     </label>
-// ======= */}
+// ======= */} 
                     <h2>Total Score: {totalScore}</h2>
                     <br /><br />
                     <h2>Number of Lives: {numberOfLives}</h2>
