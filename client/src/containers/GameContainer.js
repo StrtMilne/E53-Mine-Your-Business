@@ -216,8 +216,7 @@ const GameContainer = function () {
 //                     </label>
 // ======= */} 
                     <h2>Total Score: {totalScore}</h2>
-
-                    <br /><br />
+                    <br />
                     <div className="lives-data">
                     <h2>Number of Lives:</h2>
                     <div className="heart-images">
@@ -239,7 +238,10 @@ const GameContainer = function () {
                         : null}
                     </div>
                     </div>
-                    <br /><br />
+                    <br />
+                    <p>Current Score: {score}</p>
+                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+                    <br /><br /><br /><br /><br /><br />
                     {/* <p>Number Of Mines:</p> */}
                     <label htmlFor="numberMines">Number Of Mines: </label>
                     <select name="numberMines" id="numberMines" onInput={handDropdownInput}>
@@ -260,9 +262,6 @@ const GameContainer = function () {
                         <option value={14}>14</option>
                         <option value={15}>15</option>
                     </select>
-                    <br /><br /><br />
-                    <p>Current Score: {score}</p>
-                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                     <br /><br /><br /><br />
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
                     {/* <p><{highScores}</p> */}
