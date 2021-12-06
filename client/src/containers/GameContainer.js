@@ -9,6 +9,7 @@ const GameContainer = function () {
     const [score, setScore] = useState(0);
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
+    const[numberOfLives,setNumberOfLives]=useState(3);
 
     useEffect(() => {
         // disable clicking of the tiles grid after cashout button clicked & the cashout button
@@ -80,8 +81,9 @@ const GameContainer = function () {
         setTiles(temp);
     }
 
+    //increasing the bounty for the risk taken 
     const incrementScore = () => {
-        setScore(score + 1);
+        setScore(score + numberMines);
     }
 
     const cashOut = () => {
@@ -96,8 +98,15 @@ const GameContainer = function () {
         document.querySelector(".Tile-list").style.pointerEvents = "none";
         document.querySelector(".cashout-button").style.pointerEvents = "none";
         // 2 second delay before resetting grid after bomb click
+        // number of lives is 3 when lives = 0 then Total score will reset to 0
         setTimeout(() => {
-            setTotalScore(0);
+            if(numberOfLives===1){
+                setTotalScore(0);
+                setNumberOfLives(3);
+            }else{
+                setTotalScore(totalScore+score);
+                setNumberOfLives(numberOfLives-1);
+            }
             setScore(0);
             resetGame(numberMines);
             // re-enable clicking of the tiles grid after has been processed & the cashout button
@@ -118,6 +127,8 @@ const GameContainer = function () {
             <div className="game-container">
                 <div className="left">
                     <h2>Total Score: {totalScore}</h2>
+                    <br /><br />
+                    <h2>Number of Lives: {numberOfLives}</h2>
                     <br /><br />
                     {/* <p>Number Of Mines:</p> */}
                     <label htmlFor="numberMines">Number Of Mines: </label>
