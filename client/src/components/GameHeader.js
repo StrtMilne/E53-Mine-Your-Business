@@ -3,9 +3,7 @@ import "./static/GameHeader.css";
 import { useNavigate } from "react-router";
 
 const GameHeader = ()=> {
-    let goto = useNavigate();
-
-    
+    let goto = useNavigate(); 
 
     return(
         <header className="title-bar">

@@ -127,7 +127,7 @@ const GameContainer = function () {
             <Navigation />
             <div className="game-container">
                 <div className="left">
-// <<<<<<< iain_develop
+{/* // iain_develop
 //                     <p>Score: {score}</p>
 //                     <label for>
 //                         4 x 4 grid
@@ -138,7 +138,7 @@ const GameContainer = function () {
 //                         <input type="radio"name="grid-size" />
 
 //                     </label>
-// =======
+// ======= */}
                     <h2>Total Score: {totalScore}</h2>
                     <br /><br />
                     <h2>Number of Lives: {numberOfLives}</h2>
