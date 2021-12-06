@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
 import GameHeader from "../components/GameHeader";
+import Navigation from "../components/Navigation";
 
 const GameContainer = function () {
     
@@ -76,7 +77,6 @@ const GameContainer = function () {
 
     const setClicked = (index) => {
         let temp = tiles.map(t => t);
-        // console.log(temp); // testing
         temp[index].clicked = true;
         setTiles(temp);
     }
@@ -123,9 +123,22 @@ const GameContainer = function () {
 
     return(
         <div>
-            <GameHeader />
+            {/* <GameHeader /> */}
+            <Navigation />
             <div className="game-container">
                 <div className="left">
+// <<<<<<< iain_develop
+//                     <p>Score: {score}</p>
+//                     <label for>
+//                         4 x 4 grid
+//                         <input type="radio" name="grid-size"checked/>
+//                     </label>
+//                     <label>
+//                         5x5 grid
+//                         <input type="radio"name="grid-size" />
+
+//                     </label>
+// =======
                     <h2>Total Score: {totalScore}</h2>
                     <br /><br />
                     <h2>Number of Lives: {numberOfLives}</h2>
@@ -153,6 +166,7 @@ const GameContainer = function () {
                     <br /><br /><br />
                     <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} />
