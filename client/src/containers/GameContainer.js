@@ -10,6 +10,8 @@ import bombSound from "../components/static/gun.wav";
 import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
 import PopUp from "../components/PopUp";
+import ReactDOM from 'react-dom'
+import Snowfall from 'react-snowfall'
 
 const GameContainer = function () {
     
@@ -195,11 +197,13 @@ const GameContainer = function () {
     // database functions
     return(
         <div>
+            
             {/* <GameHeader /> */}
             <Navigation highScores={highScores} />
             <div className="game-container">
+            <Snowfall />
                 <div className="left">
-
+          
 {/* // <<<<<<< iain_develop
 //                     <p>Score: {score}</p>
 //                     <label for>
