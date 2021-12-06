@@ -2,12 +2,16 @@ import React, {useState, useEffect} from "react";
 import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
 import GameHeader from "../components/GameHeader";
+import ThemeSelect from "../components/ThemeSelect";
+import bombImage from "../assets/bomb.svg";
+import gemImage from "../assets/gem.svg";
 import Navigation from "../components/Navigation";
 
 const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
+    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image"});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
     const[numberOfLives,setNumberOfLives]=useState(3);
@@ -81,7 +85,14 @@ const GameContainer = function () {
         setTiles(temp);
     }
 
+
+    const setChosenTheme = (passedTheme) => {
+        setTheme(passedTheme);
+    }
+
+
     //increasing the bounty for the risk taken 
+
     const incrementScore = () => {
         setScore(score + numberMines);
     }
@@ -127,6 +138,7 @@ const GameContainer = function () {
             <Navigation />
             <div className="game-container">
                 <div className="left">
+
 // <<<<<<< iain_develop
 //                     <p>Score: {score}</p>
 //                     <label for>
@@ -166,10 +178,11 @@ const GameContainer = function () {
                     <br /><br /><br />
                     <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+                    <ThemeSelect setChosenTheme={setChosenTheme}/>
 
                 </div>
                 <div className="Right">
-                    <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} />
+                    <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
                 </div>
             </div>
         </div>
