@@ -14,9 +14,10 @@ const GameContainer = function () {
     const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image"});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
-    const[numberOfLives,setNumberOfLives]=useState(3);
+    const [numberOfLives,setNumberOfLives]=useState(0);
 
     useEffect(() => {
+        setNumberOfLives(3);
         // disable clicking of the tiles grid after cashout button clicked & the cashout button
         document.querySelector(".Tile-list").style.pointerEvents = "none";
         document.querySelector(".cashout-button").style.pointerEvents = "none";
@@ -94,6 +95,7 @@ const GameContainer = function () {
     //increasing the bounty for the risk taken 
 
     const incrementScore = () => {
+        // updated dynamic score from number mines
         setScore(score + numberMines);
     }
 
@@ -111,11 +113,18 @@ const GameContainer = function () {
         // 2 second delay before resetting grid after bomb click
         // number of lives is 3 when lives = 0 then Total score will reset to 0
         setTimeout(() => {
-            if(numberOfLives===1){
+            if(numberOfLives === 1){
+                // submit total score to server (high-score list)
+                let playerName = prompt("Enter your name for the scoreboard!");
+                if (playerName != null) {
+                    console.log(playerName)
+                    // send playerName and totalScore to the server...
+                }
+
+                // resetting the game
                 setTotalScore(0);
                 setNumberOfLives(3);
-            }else{
-                setTotalScore(totalScore+score);
+            } else {
                 setNumberOfLives(numberOfLives-1);
             }
             setScore(0);
