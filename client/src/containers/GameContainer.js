@@ -112,9 +112,34 @@ const GameContainer = function () {
 
     const cashOut = () => {
         console.log("cash out called"); // testing
+        
         setTotalScore(totalScore + score);
-        setScore(0);
-        resetGame(numberMines);
+        
+        setTimeout(() => { 
+            if (numberOfLives === 1) {
+                // submit total score to server (high-score list)
+                let playerName = prompt("Enter your name for the scoreboard!");
+                if (playerName != null) {
+                    console.log(playerName)
+                    // send playerName and totalScore to the server...
+                    const data = {
+                        "player_name": playerName,
+                        "score": totalScore
+                    };
+                    // send new high score to database
+                    postScore(data);
+                }
+                // resetting the game
+                setNumberOfLives(3);
+                setTotalScore(0);
+            } else {
+                setNumberOfLives(numberOfLives - 1);
+            }
+            setScore(0);
+            resetGame(numberMines);
+        }, 500);
+        
+
     }
 
     const bombClicked = () => {
@@ -139,12 +164,12 @@ const GameContainer = function () {
                 }
 
                 // resetting the game
-                setTotalScore(0);
                 setNumberOfLives(3);
             } else {
                 setNumberOfLives(numberOfLives-1);
             }
             setScore(0);
+            setTotalScore(0);
             resetGame(numberMines);
             // re-enable clicking of the tiles grid after has been processed & the cashout button
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
@@ -215,8 +240,7 @@ const GameContainer = function () {
                 </div>
             </div>
         </div>
-    )
-    
+    )  
 };
 
 export default GameContainer;
