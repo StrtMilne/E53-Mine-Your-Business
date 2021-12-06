@@ -191,6 +191,8 @@ const GameContainer = function () {
         // console.log(event.target.value); // testing
         const dropdownValue = parseInt(event.target.value);
         setNumberMines(dropdownValue);
+        // setNumberOfLives(3);
+        // resetGame();
     }
 
     // database functions

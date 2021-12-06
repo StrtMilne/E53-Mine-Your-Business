@@ -62,6 +62,12 @@
 .heart-images {
     display: flex;
     flex-flow: row nowrap;
+    /* border: 1px solid white; */
+}
+
+.heart-images > div > img {
+    /* border: 1px solid white; */
+    margin-right: 10px;
 }
 
 .lives-data {
