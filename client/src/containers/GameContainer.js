@@ -5,6 +5,8 @@ import GameHeader from "../components/GameHeader";
 import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
+import coinSound from "../components/static/magic.wav";
+import bombSound from "../components/static/gun.wav";
 import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
 
@@ -12,7 +14,7 @@ const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
-    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image"});
+    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(0);
     const [numberOfLives,setNumberOfLives] = useState(0);
