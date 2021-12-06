@@ -67,3 +67,15 @@
   }
   
 }
+
+.mcclane-image {
+    object-fit: cover;
+    width: 22vh;
+    height: 22vh;
+}
+
+.hans-image {
+    object-fit: cover;
+    width: 22vh;
+    height: 22vh;
+}
