@@ -179,6 +179,7 @@ const GameContainer = function () {
 //                     </label>
 // ======= */} 
                     <h2>Total Score: {totalScore}</h2>
+
                     <br /><br />
                     <h2>Number of Lives: {numberOfLives}</h2>
                     <br /><br />
@@ -206,6 +207,7 @@ const GameContainer = function () {
                     <p>Current Score: {score}</p>
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
+                    {/* <p><{highScores}</p> */}
 
                 </div>
                 <div className="Right">

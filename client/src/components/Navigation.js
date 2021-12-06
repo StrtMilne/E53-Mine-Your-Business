@@ -12,7 +12,7 @@ const Navigation = ({highScores}) => {
               <button className="game-button">Game</button>
           </NavLink>
           <NavLink to="/highscores">
-          <button className="highscore-button" highScores={highScores}>High Scores</button>
+            <button className="highscore-button">High Scores</button>
           </NavLink>
        </div> 
     );

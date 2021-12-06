@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 // import GameHeader from './components/GameHeader';
 import Navigation from './components/Navigation';
 import GameContainer from './containers/GameContainer.js';
-import HighScores from './components/HighScores';
+import HighScores from './containers/HighScores';
 
 class App extends Component {
   render(){
