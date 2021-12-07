@@ -1,9 +1,9 @@
 .list-item {
     display: flex;
-    flex-flow: column nowrap;
-
+    flex-flow: column nowrap;  
 }
 .rank {
+    width:49.9%;
     padding-right: 50%;
     /* display: flex;
     flex-flow: column; */
