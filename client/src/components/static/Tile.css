@@ -11,7 +11,8 @@
    
    animation: background 5s infinite alternate;
    
-   background-color:rgb(2, 97, 2)      }
+   background-color:rgb(2, 97, 2)      
+}
 
 @keyframes background {
     0% {
