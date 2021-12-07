@@ -5,19 +5,24 @@ import GameHeader from "../components/GameHeader";
 import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
+import heartImage from "../assets/heart.svg";
 import coinSound from "../components/static/magic.wav";
 import bombSound from "../components/static/gun.wav";
 import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
 import PopUp from "../components/PopUp";
+import Snowfall from 'react-snowfall'
 
 const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
     const [score, setScore] = useState(0);
-    const [theme, setTheme] = useState({goodImage: gemImage, badImage: bombImage, class: "mines", goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+
+    const [gridSize, setGridSize] = useState(4);
+    const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, class: "mines", goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+
     const [totalScore, setTotalScore] = useState(0);
-    const [numberMines, setNumberMines] = useState(0);
+    const [numberMines, setNumberMines] = useState(1);
     const [numberOfLives,setNumberOfLives] = useState(0);
     const [highScores, setHighScores] = useState([]);
     const [endGame, setEndGame] = useState(false);
@@ -43,30 +48,20 @@ const GameContainer = function () {
     // useEffect executed when numberMines state changes, it calls the resetGame method which will 
     // start the game if numberMines is not = to 0 (meaning user selected from dropdown)
     useEffect(() => {
+        if(numberMines>= (gridSize*gridSize)){
+            setNumberMines(1);
+            resetGame(1);
+        } else {
+            resetGame(numberMines);
+        }
         console.log("use effect numberMines called");
         console.log(numberMines) // testing
-        resetGame(numberMines);
-    }, [numberMines])
+    }, [numberMines, gridSize])
 
     const resetGame = (numberMines) => {
-        const defaultArray = [
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false},
-            {value: false, clicked: false}
-        ];
+        const defaultArray = Array.from(Array(gridSize*gridSize),
+            ()=>{ return {value: false, clicked: false}; });
+        
         // makes sure user can't play with no bombs
         if (numberMines === 0) {
             document.querySelector(".Tile-list").style.pointerEvents = "none";
@@ -80,9 +75,9 @@ const GameContainer = function () {
             // create custom number of bombs
             let bombIndexes = [];
             for (let i=0; i<numberMines; i++) {
-                let bombIndex = Math.floor(Math.random() * 16); // generate random number 1-16
+                let bombIndex = Math.floor(Math.random() * gridSize*gridSize); // generate random number 1-16
                 while (bombIndexes.includes(bombIndex)) {
-                    bombIndex = Math.floor(Math.random() * 16); // keep re-generating until number not already in list
+                    bombIndex = Math.floor(Math.random() * gridSize*gridSize); // keep re-generating until number not already in list
                 }
                 bombIndexes.push(bombIndex)
             }
@@ -105,6 +100,9 @@ const GameContainer = function () {
 
     const setChosenTheme = (passedTheme) => {
         setTheme(passedTheme);
+        console.log("hi")
+        
+        console.log(theme.name)
     }
 
 
@@ -190,59 +188,97 @@ const GameContainer = function () {
         // console.log(event.target.value); // testing
         const dropdownValue = parseInt(event.target.value);
         setNumberMines(dropdownValue);
+        // setNumberOfLives(3);
+        // resetGame();
+    }
+
+    const handleGridSize=(event)=>{
+        const dropdownValue = parseInt(event.target.value);
+        setGridSize(dropdownValue);
     }
 
     // database functions
     return(
-        <div>
-            {/* <GameHeader /> */}
+
+        <div className="all-game-container">
+            {theme.name.length > 5 &&
+            <Snowfall/>}
+
             <Navigation highScores={highScores} />
+
             <div className={theme.class}>
+
+//             <div className="game-container"> ***********
+                
+
                 <div className="left">
 
-{/* // <<<<<<< iain_develop
-//                     <p>Score: {score}</p>
-//                     <label for>
-//                         4 x 4 grid
-//                         <input type="radio" name="grid-size"checked/>
-//                     </label>
-//                     <label>
-//                         5x5 grid
-//                         <input type="radio"name="grid-size" />
-
-//                     </label>
-// ======= */} 
                     <h2>Total Score: {totalScore}</h2>
+                    <div className="lives-data">
+                    <h2>Lives:</h2>
+                    <div className="heart-images">
+                        {numberOfLives===3 ? 
+                            <div>
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                            </div>
+                        : null}
+                        {numberOfLives===2 ? 
+                            <div>
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                            </div>
+                        : null}
+                        {numberOfLives===1 ? 
+                            <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                        : null}
+                    </div>
+                    </div>
+                    <br />
+                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+                    <p>Current Points: {score}</p>
+                    <br />
+                    <hr />
+                    <br /><br />
+
+                    <label htmlFor="gridSize">Choose Grid: </label>
+                    <select name="gridSize" id="gridSize" onInput={handleGridSize}>
+                        <option value={0}>select...</option>
+                        {Array(6).fill(null).map((_, index)=> {
+                            if (index === 2){
+                                return (
+                                    <option selected={true} value={index+2}>
+                                        {index+2}
+                                    </option>);
+                            }
+                            return(
+                                <option value={index+2}>
+                                    {index+2}
+                                </option>);})}
+                    </select>   
+                    <br /><br /> 
+
+                    <label htmlFor="numberMines">Number Of Mines: </label>
+                    <select name="numberMines" id="numberMines" onInput={handDropdownInput} >
+                    <option value={0}>select...</option>
+                        {Array(gridSize*gridSize-1).fill(null).map((_, index)=> {
+                            if (index === 0){
+                                return (
+                                    <option selected={true} value={index+1}>
+                                        {index+1}
+                                    </option>);
+                            }
+                            return(
+                                <option value={index+1}>
+                                    {index+1}
+                                </option>);})}
+                    </select>
 
                     <br /><br />
-                    <h2>Number of Lives: {numberOfLives}</h2>
-                    <br /><br />
-                    {/* <p>Number Of Mines:</p> */}
-                    <label htmlFor="numberMines">Number Of Mines: </label>
-                    <select name="numberMines" id="numberMines" onInput={handDropdownInput}>
-                        <option value={0}>select...</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
-                        <option value={11}>11</option>
-                        <option value={12}>12</option>
-                        <option value={13}>13</option>
-                        <option value={14}>14</option>
-                        <option value={15}>15</option>
-                    </select>
-                    <br /><br /><br />
-                    <p>Current Score: {score}</p>
-                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
                     {/* <p><{highScores}</p> */}
-
                 </div>
                 <div className="right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
