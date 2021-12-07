@@ -6,7 +6,7 @@ const Navigation = ({highScores}) => {
     return (
        <div className="nav-link">
           <NavLink to="/">
-              <button className="home-button">Home</button>
+              <button className="home-button">About The Game</button>
           </NavLink>
           <NavLink to="/game">
               <button className="game-button">Game</button>

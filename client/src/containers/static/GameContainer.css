@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .outxmas {
     font-size: 125%;
     /* padding-bottom: 200px; */
     /* margin: 0 auto; */
     /* height:100vh; */
+    background-image: url("./image.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .outmines {
@@ -30,15 +35,18 @@
     /* height: 100vh; */
 }
 
-.xmas {
+.xmas { 
     display: flex;
     justify-content: space-around;
-    background-color: rgb(136, 8, 8);
+    background: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
     color:whitesmoke;
     padding-bottom: 5%;
     padding-top: 0.5%;
     padding-bottom: 13%;
     /* height: 100vh; */
+    text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
 }
 
 .left {
@@ -161,6 +169,25 @@
 }
 
 .cashout-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.xmas .left .cashout-button {
+    width: 90%;
+    height: 7.5%;
+    font-size: 115%;
+    background-color:rgb(10, 88, 10);
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.xmas .left .cashout-button:hover {
+    background-color: rgb(15, 136, 15);
+}
+
+.xmas .left .cashout-button:active {
   background-color: #3e8e41;
   box-shadow: 0 2px #666;
   transform: translateY(4px);

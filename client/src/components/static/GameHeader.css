@@ -1,22 +1,19 @@
 .title-bar {
-    
-     background-color: black;
-     height:100vh;
-    
+    background-color: black;
+    height: 100vh;
 }
 .title-bar>svg{
     width:90%;
     stroke:#fff;
     position:relative;
     left: 10vh;
-    height: 80vh;
+    height: 50vh;
     animation-name:animate;
     animation-duration: 1.5s;
     animation-direction:alternate;
     animation-iteration-count: infinite;
-
-
 }
+
 .title-bar>svg::before{
     content:"";
     position: absolute;
@@ -60,3 +57,23 @@
     text-shadow: 0 0 0.25em currentColor;
     filter: blur(0.05em)
      */
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 145%;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 195%;
+}
+
+.start-button {
+    width: 15vw;
+    height: 10vh;
+    border-radius: 2vw;
+    border: 0 auto;
+    color: darkslategray;
+}

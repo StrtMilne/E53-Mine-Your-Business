@@ -1,0 +1,18 @@
+.list-item {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+.rank {
+    padding-right: 50%;
+    /* display: flex;
+    flex-flow: column; */
+    font-size: 20px;
+}
+
+.score {
+    padding-left: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 20px;
+}

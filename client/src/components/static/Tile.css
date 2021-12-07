@@ -79,3 +79,17 @@
     width: 10vw;
     height: 10vw;
 }
+
+
+.xmas .Tile-list .individual_tile {
+  /* background-color: aquamarine; */
+  width: 10vw;
+  height: 10vw;
+  margin: 2px;
+  padding: 0;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(10, 88, 10)      
+}

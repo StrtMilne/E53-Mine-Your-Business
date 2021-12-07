@@ -24,14 +24,14 @@ const HighScores = () => {
 
     const highScore_nodes = highScores.map((score, index) => {
         return (
-            <HighScoreItem key={index} score={score} />
+            <HighScoreItem key={index} score={score} index={index} />
         )
     })
 
     return(
        <div className="high-scores-list" >
        <Navigation/>
-        <ol className="high-scores-list">
+        <ol>
             {highScore_nodes}
         </ol>
        </div> 
