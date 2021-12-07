@@ -29,11 +29,11 @@ const HighScores = () => {
     })
 
     return(
-       <div className="high-scores-list" >
+       <div className="high-scores-div" >
        <Navigation/>
-        <ol>
+        <div className="high-scores-list">
             {highScore_nodes}
-        </ol>
+        </div>
        </div> 
     )
 
