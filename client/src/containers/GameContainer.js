@@ -19,7 +19,7 @@ const GameContainer = function () {
     const [score, setScore] = useState(0);
 
     const [gridSize, setGridSize] = useState(4);
-    const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, class: "mines", goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+    const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
 
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(1);
@@ -205,12 +205,8 @@ const GameContainer = function () {
             <Snowfall/>}
 
             <Navigation highScores={highScores} />
-
-            <div className={theme.class}>
-
-//             <div className="game-container"> ***********
+            <div className="game-container">
                 
-
                 <div className="left">
 
                     <h2>Total Score: {totalScore}</h2>
@@ -280,7 +276,7 @@ const GameContainer = function () {
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
                     {/* <p><{highScores}</p> */}
                 </div>
-                <div className="right">
+                <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>
                 </div>
                 {endGame ? 
