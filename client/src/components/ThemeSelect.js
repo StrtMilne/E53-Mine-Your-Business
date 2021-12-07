@@ -5,6 +5,7 @@ import yippee from "./static/yippee.wav";
 import hoHoHo from "./static/hoHoHo.wav";
 import coinSound from "./static/magic.wav";
 import bombSound from "./static/gun.wav";
+import useSound from 'use-sound';
 
 const ThemeSelect = function ({setChosenTheme}) {
 
@@ -30,11 +31,17 @@ const ThemeSelect = function ({setChosenTheme}) {
         }
     }
 
+    const [play] = useSound("http://www.cs.tlu.ee/~rinde/media/soundid/aisakell.wav", {
+       
+    })
+
     const handleSubmit = function (event) {
         event.preventDefault();
         setChosenTheme(currentTheme);
+        if (currentTheme.class === "xmas") {
+            play();
+        }
     } 
-
 
     return(
         <form onSubmit={handleSubmit}>

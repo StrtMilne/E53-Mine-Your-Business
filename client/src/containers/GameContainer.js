@@ -8,10 +8,12 @@ import gemImage from "../assets/gem.svg";
 import heartImage from "../assets/heart.svg";
 import coinSound from "../components/static/magic.wav";
 import bombSound from "../components/static/gun.wav";
-import Navigation from "../components/Navigation";
+// import Navigation from "../components/Navigation";
 import { postScore, getScores } from "../ScoresService";
 import PopUp from "../components/PopUp";
 import Snowfall from 'react-snowfall'
+import "../components/static/nav-link.css";
+import { NavLink } from 'react-router-dom';
 
 const GameContainer = function () {
     
@@ -109,8 +111,9 @@ const GameContainer = function () {
     //increasing the bounty for the risk taken 
     const incrementScore = () => {
         // add score changes based on grid size
+        const points = Math.round((numberMines / gridSize) * 5)
         // updated dynamic score from number mines
-        setScore(score + numberMines);
+        setScore(score + points);
     }
 
     const cashOut = () => {
@@ -200,15 +203,23 @@ const GameContainer = function () {
 
     const windowContainer = "out" + theme.class;
 
-
-
     return(
 
         <div className={windowContainer}>
             {theme.name.length > 5 &&
             <Snowfall/>}
 
-            <Navigation highScores={highScores} />
+            {/* <Navigation highScores={highScores} /> */}
+
+            <div className="nav-link"> 
+                <NavLink to="/">
+                <button className="home-button">About the Game</button>
+                </NavLink>
+                <NavLink to="/highscores">
+                    <button className="highscore-button">High Scores</button>
+                </NavLink>
+             </div>
+
             <div className={theme.class}>
                 
                 <div className="left">
@@ -216,24 +227,24 @@ const GameContainer = function () {
                     <h2>Total Score: {totalScore}</h2>
                     <div className="lives-data">
                     <h2>Lives:</h2>
-                    <div className="heart-images">
-                        {numberOfLives===3 ? 
-                            <div>
+                        <div className="heart-images">
+                            {numberOfLives===3 ? 
+                                <div>
+                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                </div>
+                            : null}
+                            {numberOfLives===2 ? 
+                                <div>
+                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                </div>
+                            : null}
+                            {numberOfLives===1 ? 
                                 <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                            </div>
-                        : null}
-                        {numberOfLives===2 ? 
-                            <div>
-                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                            </div>
-                        : null}
-                        {numberOfLives===1 ? 
-                            <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                        : null}
-                    </div>
+                            : null}
+                        </div>
                     </div>
                     <br />
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
@@ -288,7 +299,6 @@ const GameContainer = function () {
                     <PopUp totalScore={totalScore} handleNameSubmit={handleNameSubmit}/>
                 </div>
                 : null}
-            
             </div>
         </div>
     )  
