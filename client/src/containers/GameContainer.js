@@ -4,7 +4,7 @@ import "./static/GameContainer.css"
 import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
-import heartImage from "../assets/heart.svg";
+import heartImage from "../assets/8bitHeart.png";
 import coinSound from "../components/static/magic.wav";
 import bombSound from "../components/static/gun.wav";
 import { getScores } from "../ScoresService";
