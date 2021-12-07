@@ -173,7 +173,7 @@ const GameContainer = function () {
                 
                 <div className="left">
 
-                    <h2>Total Score: {totalScore}</h2>
+                    <h2 className="total-score-data">Total Score: {totalScore}</h2>
                     <div className="lives-data">
                     <h2>Lives:</h2>
                         <div className="heart-images">
@@ -195,31 +195,32 @@ const GameContainer = function () {
                             : null}
                         </div>
                     </div>
-                    <br />
+                    <br /><br />
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
                     <p>Current Points: {score}</p>
                     <br />
                     <hr />
-                    <br /><br />
-
-                    <label htmlFor="gridSize">Choose Grid: </label>
-                    <select name="gridSize" id="gridSize" onInput={handleGridSize}>
-                        <option value={0} key={0}>select...</option>
-                        {Array(6).fill(null).map((_, index)=> {
-                            if (index === 2){
-                                return (
-                                    <option selected={true} value={index+2} key={index+1}>
+                    <br />
+                    <div className="adjustables">
+                        <label htmlFor="gridSize">Choose Grid: </label>
+                        <select name="gridSize" id="gridSize" onInput={handleGridSize}>
+                            <option value={0} key={0}>select...</option>
+                            {Array(6).fill(null).map((_, index)=> {
+                                if (index === 2){
+                                    return (
+                                        <option selected={true} value={index+2} key={index+1}>
+                                            {index+2}
+                                        </option>);
+                                }
+                                return(
+                                    <option value={index+2} key={index+1}>
                                         {index+2}
-                                    </option>);
-                            }
-                            return(
-                                <option value={index+2} key={index+1}>
-                                    {index+2}
-                                </option>);})}
-                    </select>   
-                    <br /><br /> 
+                                    </option>);})}
+                        </select>   
+                    </div>
+                    <br />
 
-                    <label htmlFor="numberMines">Number Of Mines: </label>
+                    <label htmlFor="numberMines">No. Mines: </label>
                     <select name="numberMines" id="numberMines" onInput={handDropdownInput} >
                     <option value={0} >select...</option>
                         {Array(gridSize*gridSize-1).fill(null).map((_, index)=> {
