@@ -31,6 +31,7 @@ const ScoreChart = function({highScores}) {
               }
             ]
         };
+
         // set labels
         let tempLabelsArray = [];
         for (let data of topFive) {
@@ -50,14 +51,25 @@ const ScoreChart = function({highScores}) {
         <div>
             {topFive !== [] ?
             <>
-                <h2>Top 5 Players</h2>
+                <h1>Top 5 Players</h1>
                 <div className="bar-chart">
                     <Bar 
                         data={getData}
-                        // width="100vw"
-                        // height="50vh"
                         options={{
-                        maintainAspectRatio: false        
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontSize: 25
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontSize: 25
+                                }
+                            }]
+                        }
                         }}
                     />
                 </div>

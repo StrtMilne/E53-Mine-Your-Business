@@ -37,11 +37,14 @@ const HighScores = () => {
     return(
        <div className="high-scores-div" >
        <Navigation/>
-       <div>
+       <div className="chart-div">
            {highScores.length===highScoresLength  ? <ScoreChart highScores={highScores} /> : null}
        </div>
-        <div className="high-scores-list">
-            {highScore_nodes}
+       <div className="scoreboard">
+        <h1>Scoreboard</h1>
+            <div className="high-scores-list">
+                {highScore_nodes}
+            </div>
         </div>
        </div> 
     )
