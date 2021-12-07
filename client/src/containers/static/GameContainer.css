@@ -10,6 +10,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
+    cursor: url("Snowflake.png"), default;
 }
 
 .outmines {
@@ -18,7 +19,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
     /* height:100vh; */
 }
 
