@@ -109,8 +109,9 @@ const GameContainer = function () {
     //increasing the bounty for the risk taken 
     const incrementScore = () => {
         // add score changes based on grid size
+        const points = Math.round((numberMines / gridSize) * 5)
         // updated dynamic score from number mines
-        setScore(score + numberMines);
+        setScore(score + points);
     }
 
     const cashOut = () => {
