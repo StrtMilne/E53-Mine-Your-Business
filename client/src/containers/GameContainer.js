@@ -19,7 +19,7 @@ const GameContainer = function () {
     const [score, setScore] = useState(0);
 
     const [gridSize, setGridSize] = useState(4);
-    const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", goodSound: coinSound, badSound: bombSound});
+    const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", class: "mines", goodSound: coinSound, badSound: bombSound});
 
     const [totalScore, setTotalScore] = useState(0);
     const [numberMines, setNumberMines] = useState(1);
@@ -197,15 +197,18 @@ const GameContainer = function () {
         setGridSize(dropdownValue);
     }
 
-    // database functions
+    const windowContainer = "out" + theme.class;
+
+
+
     return(
 
-        <div className="all-game-container">
+        <div className={windowContainer}>
             {theme.name.length > 5 &&
             <Snowfall/>}
 
             <Navigation highScores={highScores} />
-            <div className="game-container">
+            <div className={theme.class}>
                 
                 <div className="left">
 
@@ -284,6 +287,7 @@ const GameContainer = function () {
                     <PopUp totalScore={totalScore} handleNameSubmit={handleNameSubmit}/>
                 </div>
                 : null}
+            
             </div>
         </div>
     )  

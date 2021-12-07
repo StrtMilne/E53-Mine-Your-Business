@@ -10,6 +10,7 @@ import HighScores from './containers/HighScores';
 class App extends Component {
   render(){
   return (
+
     <BrowserRouter>
   
       <Routes>
@@ -21,6 +22,7 @@ class App extends Component {
       </Routes>
       
     </BrowserRouter>
+
     
   );
 }

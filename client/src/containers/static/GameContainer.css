@@ -1,14 +1,44 @@
-.all-game-container {
+.outxmas {
     font-size: 125%;
+    /* padding-bottom: 200px; */
+    /* margin: 0 auto; */
+    /* height:100vh; */
 }
 
-.game-container {
+.outmines {
+    font-size: 125%;
+    /* height:100vh; */
+}
+
+/* .game-container {
     display: flex;
     justify-content: space-around;
     background-color: black;
     color:whitesmoke;
     padding-bottom: 5%;
     padding-top: 0.5%;
+} */
+
+.mines {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color:whitesmoke;
+    padding-bottom: 5%;
+    padding-top: 0.5%;
+    padding-bottom: 13%;
+    /* height: 100vh; */
+}
+
+.xmas {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(136, 8, 8);
+    color:whitesmoke;
+    padding-bottom: 5%;
+    padding-top: 0.5%;
+    padding-bottom: 13%;
+    /* height: 100vh; */
 }
 
 .left {

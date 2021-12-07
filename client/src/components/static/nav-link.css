@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .nav-link{
     background-color: black;
     height: 20vh;
@@ -5,8 +7,30 @@
     justify-content: space-evenly;
     align-items: center;
     border: 10vh;
-
 }
+
+.outxmas .nav-link {
+    background-color: rgb(136, 8, 8);
+    height: 20vh;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 10vh;
+    border: 0;
+    font-family: 'Pacifico', cursive;
+}
+
+
+/* .outmines .nav-link {
+    background-color: black;
+    height: 20vh;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 10vh;
+} */
+
+/* gem theme */
 
 .home-button{
     background-color: black;
@@ -74,3 +98,43 @@
     position: relative;
 }
 
+/* Xmas styling*/
+
+.outxmas .nav-link .home-button{
+    background-color: rgb(136, 8, 8);
+    font-size: 4rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;;
+    font-family: 'Pacifico', cursive;
+    color:white;
+    padding:0.25 1em;
+    border: 0;
+    position: relative;
+}
+.outxmas .nav-link .game-button{
+    background-color: rgb(136, 8, 8);
+    font-size: 4rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    border:white;
+    font-family: 'Pacifico', cursive;
+    color:white;
+    padding:0.25 1em;
+    border: 0;
+    position: relative;
+}
+
+.outxmas .nav-link .highscore-button{
+    background-color: rgb(136, 8, 8);
+    font-size: 4rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    padding:0.25 1em;
+    border: 0;
+    position: relative;
+}
