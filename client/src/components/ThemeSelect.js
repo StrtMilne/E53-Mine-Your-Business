@@ -3,13 +3,13 @@ import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import yippee from "./static/yippee.wav";
 import hoHoHo from "./static/hoHoHo.wav";
-import coinSound from "./static/magic.wav";
-import bombSound from "./static/gun.wav";
 import useSound from 'use-sound';
+import gemSound from "./static/magic.wav"
+import bombSound from "./static/gun.wav"
 
 const ThemeSelect = function ({setChosenTheme}) {
 
-    const mines = {name: "mines",goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", class: "mines", goodSound: yippee , badSound: hoHoHo};
+    const mines = {name: "mines",goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", class: "mines", goodSound: gemSound , badSound: bombSound};
     const christmas = {
         name: "dieHard",
         goodImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/12/Die-Hard-Is-A-Christmas-Movie-Debate-Ended-By-The-Movie---s-Director.jpg", 
@@ -53,6 +53,6 @@ const ThemeSelect = function ({setChosenTheme}) {
             <button type="submit">Set</button>
         </form>
     )
-};
+}
 
 export default ThemeSelect;

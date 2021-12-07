@@ -10,15 +10,11 @@ const PopUp = function({ totalScore, handleNameSubmit }) {
     }
 
     const handleClick = () => {
-        // send playerName and totalScore to the server...
         const data = {
             "player_name": inputName,
             "score": totalScore
         };
-        // send new high score to database
         postScore(data);
-
-        // call method from container which would set endGame to false & setTotalScore to 0
         handleNameSubmit();
 
     }
