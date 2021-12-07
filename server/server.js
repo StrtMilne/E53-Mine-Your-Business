@@ -15,10 +15,6 @@ const client = new Client ({
 })
 
 client.connect()
-    // .then((client) => {
-    //     app.use('/api/scores', client);
-    // })
-    // .catch(console.err);
 
 app.get("/api/scores", (req, res) => {
     client.query("SELECT * FROM high_scores;")

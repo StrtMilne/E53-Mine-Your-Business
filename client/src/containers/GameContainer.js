@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from "react";
 import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
-import GameHeader from "../components/GameHeader";
 import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
 import heartImage from "../assets/heart.svg";
 import coinSound from "../components/static/magic.wav";
 import bombSound from "../components/static/gun.wav";
-// import Navigation from "../components/Navigation";
-import { postScore, getScores } from "../ScoresService";
+import { getScores } from "../ScoresService";
 import PopUp from "../components/PopUp";
 import Snowfall from 'react-snowfall'
 import "../components/static/nav-link.css";
@@ -31,7 +29,6 @@ const GameContainer = function () {
 
     const getHighScores = function() {
         getScores()
-        // .then(response => console.log(response[0].score))
         .then(response => response.sort(function(a, b) {
             return b.score - a.score;
         }))
@@ -41,7 +38,6 @@ const GameContainer = function () {
     useEffect(() => {
         getHighScores();
         setNumberOfLives(3);
-        // disable clicking of the tiles grid after cashout button clicked & the cashout button
         document.querySelector(".Tile-list").style.pointerEvents = "none";
         document.querySelector(".cashout-button").style.pointerEvents = "none";
         resetGame(numberMines);
@@ -56,22 +52,18 @@ const GameContainer = function () {
         } else {
             resetGame(numberMines);
         }
-        console.log("use effect numberMines called");
-        console.log(numberMines) // testing
     }, [numberMines, gridSize])
 
     const resetGame = (numberMines) => {
         const defaultArray = Array.from(Array(gridSize*gridSize),
             ()=>{ return {value: false, clicked: false}; });
         
-        // makes sure user can't play with no bombs
         if (numberMines === 0) {
             document.querySelector(".Tile-list").style.pointerEvents = "none";
             document.querySelector(".cashout-button").style.pointerEvents = "none";   
         }
         // if statement ensures that tiles only clickable when user has selected a number of mines
         if (numberMines !== 0) {
-            console.log("unlock"); // testing
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
             document.querySelector(".cashout-button").style.pointerEvents = "auto";
             // create custom number of bombs
@@ -83,14 +75,12 @@ const GameContainer = function () {
                 }
                 bombIndexes.push(bombIndex)
             }
-            // console.log(bombIndexes); // testing
             // assign bombs at specified indexes from the array bombIndexes
             for (let i=0; i<bombIndexes.length; i++) {
                 defaultArray[bombIndexes[i]].value = true;
-                // defaultArray[bombIndexes[i]].clicked = true; // testing
             }
         }
-        setTiles(defaultArray); // set under if statement so tiles will still render before user has made a choice
+        setTiles(defaultArray); 
     }
 
     const setClicked = (index) => {
@@ -102,43 +92,20 @@ const GameContainer = function () {
 
     const setChosenTheme = (passedTheme) => {
         setTheme(passedTheme);
-        console.log("hi")
-        
-        console.log(theme.name)
     }
 
-
-    //increasing the bounty for the risk taken 
     const incrementScore = () => {
-        // add score changes based on grid size
         const points = Math.round((numberMines / gridSize) * 5)
-        // updated dynamic score from number mines
         setScore(score + points);
     }
 
     const cashOut = () => {
-        console.log("cash out called"); // testing
-        
         setTotalScore(totalScore + score);
         
         setTimeout(() => { 
             if (numberOfLives === 1) {
                 setEndGame(true);
-                // // submit total score to server (high-score list)
-                // let playerName = prompt("Enter your name for the scoreboard!");
-                // if (playerName != null) {
-                //     console.log(playerName)
-                //     // send playerName and totalScore to the server...
-                //     const data = {
-                //         "player_name": playerName,
-                //         "score": totalScore
-                //     };
-                //     // send new high score to database
-                //     postScore(data);
-                // }
-                // resetting the game
                 setNumberOfLives(3);
-                // setTotalScore(0);
             } else {
                 setNumberOfLives(numberOfLives - 1);
             }
@@ -158,19 +125,6 @@ const GameContainer = function () {
         setTimeout(() => {
             if(numberOfLives === 1){
                 setEndGame(true);
-                // // submit total score to server (high-score list)
-                // let playerName = prompt("Enter your name for the scoreboard!");
-                // if (playerName != null) {
-                //     console.log(playerName)
-                //     // send playerName and totalScore to the server...
-                //     const data = {
-                //         "player_name": playerName,
-                //         "score": totalScore
-                //     };
-                //     // send new high score to database
-                //     postScore(data);
-                // }
-                // resetting the game
                 setNumberOfLives(3);
             } else {
                 setNumberOfLives(numberOfLives-1);
@@ -189,11 +143,8 @@ const GameContainer = function () {
     }
 
     const handDropdownInput = (event) => {
-        // console.log(event.target.value); // testing
         const dropdownValue = parseInt(event.target.value);
         setNumberMines(dropdownValue);
-        // setNumberOfLives(3);
-        // resetGame();
     }
 
     const handleGridSize=(event)=>{
@@ -209,14 +160,12 @@ const GameContainer = function () {
             {theme.name.length > 5 &&
             <Snowfall/>}
 
-            {/* <Navigation highScores={highScores} /> */}
-
             <div className="nav-link"> 
                 <NavLink to="/">
-                <button className="home-button">About the Game</button>
+                <button className="home-button">About</button>
                 </NavLink>
                 <NavLink to="/highscores">
-                    <button className="highscore-button">High Scores</button>
+                    <button className="highscore-button">Leaderboard</button>
                 </NavLink>
              </div>
 
@@ -230,19 +179,19 @@ const GameContainer = function () {
                         <div className="heart-images">
                             {numberOfLives===3 ? 
                                 <div>
-                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart" width="40px" height="40px" />
                                 </div>
                             : null}
                             {numberOfLives===2 ? 
                                 <div>
-                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
-                                    <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart" width="40px" height="40px" />
+                                    <img src={heartImage} alt="heart" width="40px" height="40px" />
                                 </div>
                             : null}
                             {numberOfLives===1 ? 
-                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart" width="40px" height="40px" />
                             : null}
                         </div>
                     </div>
@@ -255,16 +204,16 @@ const GameContainer = function () {
 
                     <label htmlFor="gridSize">Choose Grid: </label>
                     <select name="gridSize" id="gridSize" onInput={handleGridSize}>
-                        <option value={0}>select...</option>
+                        <option value={0} key={0}>select...</option>
                         {Array(6).fill(null).map((_, index)=> {
                             if (index === 2){
                                 return (
-                                    <option selected={true} value={index+2}>
+                                    <option selected={true} value={index+2} key={index+1}>
                                         {index+2}
                                     </option>);
                             }
                             return(
-                                <option value={index+2}>
+                                <option value={index+2} key={index+1}>
                                     {index+2}
                                 </option>);})}
                     </select>   
@@ -272,7 +221,7 @@ const GameContainer = function () {
 
                     <label htmlFor="numberMines">Number Of Mines: </label>
                     <select name="numberMines" id="numberMines" onInput={handDropdownInput} >
-                    <option value={0}>select...</option>
+                    <option value={0} >select...</option>
                         {Array(gridSize*gridSize-1).fill(null).map((_, index)=> {
                             if (index === 0){
                                 return (
@@ -289,7 +238,6 @@ const GameContainer = function () {
                     <br /><br />
 
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
-                    {/* <p><{highScores}</p> */}
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>

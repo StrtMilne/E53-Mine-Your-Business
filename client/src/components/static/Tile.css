@@ -1,5 +1,4 @@
 .individual_tile {
-   /* background-color: aquamarine; */
    width: 10vw;
    height: 10vw;
    margin: 2px;
@@ -11,7 +10,8 @@
    
    animation: background 5s infinite alternate;
    
-   background-color:rgb(2, 97, 2)      }
+   background-color:rgba(118, 214, 255, 0.363)      
+}
 
 @keyframes background {
     0% {
@@ -25,22 +25,11 @@
       }
 
     }
-/* .individual_tile:hover{
-    visibility: hidden;
-    background-color: aquamarine;
-} */
+
 .toolTipText{
     position:relative;
 
 }
-.tile{
-    /* pointer-events: none; */
-
-}
-
-/* .individual_tile:hover {
-    set
-} */
 
 .gem-image {
    animation:animate-gem 1s infinite alternate;
@@ -82,7 +71,6 @@
 
 
 .xmas .Tile-list .individual_tile {
-  /* background-color: aquamarine; */
   width: 10vw;
   height: 10vw;
   margin: 2px;

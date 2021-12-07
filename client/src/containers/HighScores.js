@@ -41,7 +41,7 @@ const HighScores = () => {
     return(
 
        <div className="high-scores-div" >
-       <div className="nav-link"> 
+        <div className="nav-link"> 
             <NavLink to="/">
                 <button className="home-button">About the Game</button>
             </NavLink>
