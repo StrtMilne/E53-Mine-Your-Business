@@ -1,0 +1,8 @@
+.bar-chart {
+    border: 5px solid pink;
+    /* background-color: black; */
+    width: 90vw;
+    height: 40vh;
+    margin: 2% auto;
+    border-radius: 2vw;
+}
