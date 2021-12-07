@@ -5,6 +5,7 @@ import GameHeader from "../components/GameHeader";
 import ThemeSelect from "../components/ThemeSelect";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
+import heartImage from "../assets/heart.svg";
 import coinSound from "../components/static/magic.wav";
 import bombSound from "../components/static/gun.wav";
 import Navigation from "../components/Navigation";
@@ -181,6 +182,8 @@ const GameContainer = function () {
         // console.log(event.target.value); // testing
         const dropdownValue = parseInt(event.target.value);
         setNumberMines(dropdownValue);
+        // setNumberOfLives(3);
+        // resetGame();
     }
 
     const handleGridSize=(event)=>{
@@ -190,16 +193,39 @@ const GameContainer = function () {
 
     // database functions
     return(
-        <div>
+        <div className="all-game-container">
             {/* <GameHeader /> */}
             <Navigation highScores={highScores} />
             <div className="game-container">
                 <div className="left">
 
                     <h2>Total Score: {totalScore}</h2>
-
-                    <br /><br />
-                    <h2>Number of Lives: {numberOfLives}</h2>
+                    <div className="lives-data">
+                    <h2>Lives:</h2>
+                    <div className="heart-images">
+                        {numberOfLives===3 ? 
+                            <div>
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                            </div>
+                        : null}
+                        {numberOfLives===2 ? 
+                            <div>
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                                <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                            </div>
+                        : null}
+                        {numberOfLives===1 ? 
+                            <img src={heartImage} alt="heart image" width="40px" height="40px" />
+                        : null}
+                    </div>
+                    </div>
+                    <br />
+                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+                    <p>Current Points: {score}</p>
+                    <br />
+                    <hr />
                     <br /><br />
 
                     <label htmlFor="gridSize">Choose Grid: </label>
@@ -236,11 +262,9 @@ const GameContainer = function () {
                     </select>
 
                     <br /><br />
-                    <p>Current Score: {score}</p>
-                    <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
                     {/* <p><{highScores}</p> */}
-
                 </div>
                 <div className="Right">
                     <TilesList tiles={tiles} setClicked={setClicked} incrementScore={incrementScore} bombClicked={bombClicked} theme={theme}/>

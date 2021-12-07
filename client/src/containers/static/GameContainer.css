@@ -1,8 +1,14 @@
+.all-game-container {
+    font-size: 125%;
+}
+
 .game-container {
     display: flex;
     justify-content: space-around;
     background-color: black;
-    color:whitesmoke
+    color:whitesmoke;
+    padding-bottom: 5%;
+    padding-top: 0.5%;
 }
 
 .left {
@@ -59,3 +65,73 @@
     color:white; 
 }
 
+.heart-images {
+    display: flex;
+    flex-flow: row nowrap;
+    /* border: 1px solid white; */
+   	animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    12.5% {
+        -webkit-transform: scale(1.025);
+        transform: scale(1.025);
+    }
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    50% {
+       -webkit-transform: scale(1.1);
+       transform: scale(1.1);
+    }
+    75% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+    87.5% {
+        -webkit-transform: scale(1.175);
+        transform: scale(1.175);
+    }
+    100% {
+        -webkit-transform: scale(1.2);
+       transform: scale(1.2);
+    }
+}
+
+.heart-images > div > img {
+    /* border: 1px solid white; */
+    margin-right: 10px;
+}
+
+.lives-data {
+    display: flex;
+    align-items: center;
+}
+
+.lives-data > h2 {
+    padding-right: 7.5%;
+}
+
+.cashout-button {
+    width: 90%;
+    height: 7.5%;
+    font-size: 115%;
+    background-color: green;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.cashout-button:hover {
+    background-color: lightgreen;
+}
+
+.cashout-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
