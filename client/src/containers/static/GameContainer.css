@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+
 .outxmas {
     font-size: 135%;
     /* padding-bottom: 200px; */
@@ -8,10 +9,16 @@
     background-image: url("./image.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: right;
 }
 
 .outmines {
     font-size: 135%;
+    background-image: url("./img4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
     /* height:100vh; */
 }
 
@@ -27,7 +34,7 @@
 .mines {
     display: flex;
     justify-content: space-around;
-    background-color: black;
+    /* background-color: black; */
     color:whitesmoke;
     padding-bottom: 5%;
     padding-top: 0.5%;
@@ -118,6 +125,7 @@
     12.5% {
         -webkit-transform: scale(1.025);
         transform: scale(1.025);
+    /* border: 1px solid white; */
     }
     25% {
         -webkit-transform: scale(1.05);
@@ -148,6 +156,7 @@
 
 .lives-data {
     display: flex;
+    flex-flow: row nowrap;
     align-items: center;
 }
 
@@ -159,17 +168,17 @@
     width: 90%;
     height: 7.5%;
     font-size: 115%;
-    background-color: green;
-    border-radius: 1vw;
+    background-color: rgb(76, 179, 244);
+    border-radius: 1vw; 
     cursor: pointer;
 }
 
 .cashout-button:hover {
-    background-color: lightgreen;
+    background-color: rgb(118, 178, 251);
 }
 
 .cashout-button:active {
-  background-color: #3e8e41;
+  background-color: #;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
@@ -203,6 +212,14 @@
     text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
 }
 
+.mines select {
+    background: rgba(76, 180, 244, 0.64);
+    color: white;
+    border: white 2px solid;
+    padding: 3px;
+    font-size: 20px;
+}
+
 option  {
     background: rgba(131, 0, 0, 0.562);
     color: white;
@@ -219,9 +236,9 @@ option  {
 .mines .left form button {
     width: 20%;
     height: 5%;
-    font-size: 60%;
-    background-color: green;
-    color: white;
+    font-size: 110%;
+    background-color: rgb(76, 179, 244);
+    color: black;
     border-radius: 1vw;
     cursor: pointer;
 
@@ -230,7 +247,7 @@ option  {
 .xmas .left form button {
     width: 20%;
     height: 5%;
-    font-size: 110%;
+    font-size: 105%;
     background-color: rgba(131, 0, 0, 0.562);
     color: white;
     border-radius: 1vw;
