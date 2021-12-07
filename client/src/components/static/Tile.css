@@ -1,7 +1,7 @@
 .individual_tile {
    /* background-color: aquamarine; */
-   width: 22vh;
-   height: 22vh;
+   width: 10vw;
+   height: 10vw;
    margin: 2px;
    padding: 0;  
    display: flex;
@@ -70,12 +70,12 @@
 
 .mcclane-image {
     object-fit: cover;
-    width: 22vh;
-    height: 22vh;
+    width: 10vw;
+    height: 10vw;
 }
 
 .hans-image {
     object-fit: cover;
-    width: 22vh;
-    height: 22vh;
+    width: 10vw;
+    height: 10vw;
 }

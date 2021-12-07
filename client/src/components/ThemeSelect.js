@@ -37,7 +37,7 @@ const ThemeSelect = function ({setChosenTheme}) {
 
     return(
         <form onSubmit={handleSubmit}>
-            <label for="select-theme">Select theme: </label> 
+            <label for="select-theme">Select Theme: </label>
             <select onChange={handleChange}>
                 <option value="mines">Mines</option>
                 <option value="christmas">Christmas</option>
