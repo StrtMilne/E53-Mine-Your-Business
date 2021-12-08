@@ -95,7 +95,7 @@ const GameContainer = function () {
     }
 
     const incrementScore = () => {
-        const points = Math.round((numberMines / gridSize) * 5)
+        const points = Math.round((numberMines / gridSize) * 10)
         setScore(score + points);
     }
 
@@ -235,7 +235,7 @@ const GameContainer = function () {
                                     {index+1}
                                 </option>);})}
                     </select>
-
+                    <p>you will recieve {Math.round((numberMines / gridSize) * 10)} points per gem</p>
                     <br /><br />
 
                     <ThemeSelect setChosenTheme={setChosenTheme}/>

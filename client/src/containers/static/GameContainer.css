@@ -172,9 +172,7 @@
     margin-left: 17.5%;
 }
 
-.lives-data > h2 {
-    /* padding-right: 7.5%; */
-}
+
 
 .cashout-button {
     padding: 0;
@@ -192,7 +190,7 @@
 }
 
 .cashout-button:active {
-  background-color: #;
+  background-color: #666;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
