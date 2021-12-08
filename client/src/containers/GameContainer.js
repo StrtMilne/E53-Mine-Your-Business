@@ -152,13 +152,14 @@ const GameContainer = function () {
         console.log("calcMultiplier", calcMultiplier);
         setCurrentMultiplier(calcMultiplier);
         // use calcMultiplier because asyncronous
-        setScore((score * calcMultiplier).toFixed(2));
+        setScore(score);
 
         setGemsRevealed(gemsRevealed + 1);
         setNumberCLicks(numberClicks + 1);
     }
 
     const cashOut = () => {
+        setScore(((score * currentMultiplier).toFixed(2)));
         setTotalScore(score);
         setTimeout(() => { 
             if (numberOfLives === 1) {
@@ -268,7 +269,7 @@ const GameContainer = function () {
                     </div>
                     <br /><br />
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
-                    <p>Current Multiplier: {currentMultiplier}%</p>
+                    <p>Multiplier: {currentMultiplier}%</p>
                     <p>Current Points: {score}</p>
                     <br />
                     <hr />
