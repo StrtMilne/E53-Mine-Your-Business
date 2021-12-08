@@ -26,6 +26,7 @@ const GameContainer = function () {
     const [numberOfLives,setNumberOfLives] = useState(0);
     const [highScores, setHighScores] = useState([]);
     const [endGame, setEndGame] = useState(false);
+    const [multiplier,setMultiplier] = useState(0)
 
     const getHighScores = function() {
         getScores()
@@ -55,6 +56,7 @@ const GameContainer = function () {
     }, [numberMines, gridSize])
 
     const resetGame = (numberMines) => {
+        gemPoints();
         const defaultArray = Array.from(Array(gridSize*gridSize),
             ()=>{ return {value: false, clicked: false}; });
         
@@ -94,9 +96,17 @@ const GameContainer = function () {
         setTheme(passedTheme);
     }
 
+    const gemPoints = () => {
+        const probMine =(numberMines/(gridSize*gridSize));
+        const probGem = ((gridSize*gridSize - numberMines)/gridSize*gridSize);
+        const multiplier = (1/(probGem/(gridSize*gridSize)));
+        setMultiplier(multiplier);
+    }
+    
     const incrementScore = () => {
-        const points = Math.round((numberMines / gridSize) * 10)
-        setScore(score + points);
+        const points = Math.round(score + multiplier);
+        // const points = Math.round((numberMines / gridSize) * 1)
+        setScore(points);
     }
 
     const cashOut = () => {
@@ -235,7 +245,7 @@ const GameContainer = function () {
                                     {index+1}
                                 </option>);})}
                     </select>
-                    <p>you will recieve {Math.round((numberMines / gridSize) * 10)} points per gem</p>
+                    <p>{Math.round(multiplier)} points per gem</p>
                     <br /><br />
 
                     <ThemeSelect setChosenTheme={setChosenTheme}/>

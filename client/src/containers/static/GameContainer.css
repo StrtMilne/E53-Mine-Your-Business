@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
 .outxmas {
     font-size: 135%;
-    /* padding-bottom: 200px; */
-    /* margin: 0 auto; */
-    /* height:100vh; */
     background-image: url("./image.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -20,27 +16,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* height:100vh; */
+
 }
 
-/* .game-container {
-    display: flex;
-    justify-content: space-around;
-    background-color: black;
-    color:whitesmoke;
-    padding-bottom: 5%;
-    padding-top: 0.5%;
-} */
 
 .mines {
     display: flex;
     justify-content: space-around;
-    /* background-color: black; */
     color:whitesmoke;
     padding-bottom: 5%;
     padding-top: 0.5%;
     padding-bottom: 13%;
-    /* height: 100vh; */
     text-align: center;
 }
 
@@ -54,7 +40,6 @@
     padding-bottom: 5%;
     padding-top: 0.5%;
     padding-bottom: 13%;
-    /* height: 100vh; */
     text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
     text-align: center;
 }
@@ -117,7 +102,6 @@
 .heart-images {
     display: flex;
     flex-flow: row nowrap;
-    /* border: 1px solid white; */
    	animation: pulse 2s infinite alternate;
 }
 
@@ -129,7 +113,6 @@
     12.5% {
         -webkit-transform: scale(1.025);
         transform: scale(1.025);
-    /* border: 1px solid white; */
     }
     25% {
         -webkit-transform: scale(1.05);
@@ -158,7 +141,6 @@
 }
 
 .heart-images > div > img {
-    /* border: 1px solid white; */
     margin-right: 5px;
 }
 
@@ -171,8 +153,6 @@
 .heart-images {
     margin-left: 17.5%;
 }
-
-
 
 .cashout-button {
     padding: 0;
@@ -239,6 +219,7 @@ option  {
 
 .left h2 {
     text-align: left;
+    background: transparent;
 }
 
 .left p {
@@ -257,7 +238,6 @@ option  {
     color: black;
     border-radius: 1vw;
     cursor: pointer;
-
 }
 
 .xmas .left form button {
@@ -276,7 +256,4 @@ label {
     font-size: 70%;
     margin: 0;
     padding: 0;
-}
-
-.adjustables {
 }

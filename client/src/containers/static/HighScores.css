@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .high-scores-div{
     border-color: green;
     background-color: black;
@@ -27,8 +29,6 @@
 }
 
 .high-scores-list div{
-    /* position:relative; */
-    /* margin-left:40vh; */
     margin-bottom: 5vh;
     background-color: rgba(255, 255, 255, 0.455) ;
     color: black;
@@ -65,8 +65,4 @@
         drop-shadow(0px 0px 20px rgb(78, 159, 81))
         drop-shadow(0px 0px 30px rgb(4, 50, 2))
     }    
-}
-
-.scoreboard {
-
 }

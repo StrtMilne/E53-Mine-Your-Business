@@ -106,7 +106,7 @@
     color:black;
     text-shadow: none;
     filter: drop-shadow(0 0 30px rgb(76, 179, 244));
-
+}
 
 .game-button::before{
     pointer-events: none;
@@ -125,9 +125,6 @@
     filter:blur(1.5em);
 }
 
-
-  
-}
 .highscore-button{
     background-color: black;
     font-size: 3rem;
@@ -150,6 +147,7 @@
     0 0 1em 0 currentColor;
     position: relative;
 }
+
 .highscore-button:hover{
     background-color: rgb(76, 179, 244);
     color:black;
