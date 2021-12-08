@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import TilesList from "../components/TilesList";
 import "./static/GameContainer.css"
 import ThemeSelect from "../components/ThemeSelect";
@@ -33,6 +33,7 @@ const GameContainer = function () {
     const [gemsRevealed, setGemsRevealed] = useState(0);
     const [numberClicks, setNumberCLicks] = useState(1);
     const [snapshotTotalScore, setSnapshotTotalScore] = useState(0);
+    const firstRender = useRef(true);
 
     const getHighScores = function() {
         getScores()
@@ -41,6 +42,17 @@ const GameContainer = function () {
         }))
         .then(data => setHighScores(data))
     }
+
+    useEffect(() => {
+        if (firstRender.current === true) {
+            firstRender.current = false;
+            return;
+        } else {
+            setTimeout(() => {
+                setScore(0);
+            }, 8000)
+        }
+    }, [endGame])
 
     useEffect(() => {
         getHighScores();
@@ -64,6 +76,7 @@ const GameContainer = function () {
     const resetGame = (numberMines) => {
 
         setTotalScore(0);
+        setCurrentMultiplier(0);
 
         gemPoints();
 
@@ -152,6 +165,9 @@ const GameContainer = function () {
                 console.log("totalScore", totalScore);
                 setSnapshotTotalScore(totalScore);
                 console.log("snapshotTotalScore", snapshotTotalScore);
+                if (score === 100) {
+                    setScore(0);
+                }
                 setEndGame(true);
                 setNumberOfLives(3);
             } else {
@@ -291,7 +307,6 @@ const GameContainer = function () {
                                     {index+1}
                                 </option>);})}
                     </select>
-                    <p>{Math.round(multiplier)} points per gem</p>                    
                     <br /><br />
 
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
