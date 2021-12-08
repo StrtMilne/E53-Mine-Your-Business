@@ -16,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 const GameContainer = function () {
     
     const [tiles, setTiles] = useState([]);
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(100);
 
     const [gridSize, setGridSize] = useState(4);
     const [theme, setTheme] = useState({name:"mines", goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", class: "mines", goodSound: coinSound, badSound: bombSound});
@@ -26,7 +26,12 @@ const GameContainer = function () {
     const [numberOfLives,setNumberOfLives] = useState(0);
     const [highScores, setHighScores] = useState([]);
     const [endGame, setEndGame] = useState(false);
-    const [multiplier,setMultiplier] = useState(0)
+    const [multiplier, setMultiplier] = useState(0)
+
+    // for multiplier scoring
+    const [currentMultiplier, setCurrentMultiplier] = useState(0);
+    const [gemsRevealed, setGemsRevealed] = useState(0);
+    const [numberClicks, setNumberCLicks] = useState(1);
 
     const getHighScores = function() {
         getScores()
@@ -47,7 +52,7 @@ const GameContainer = function () {
     // useEffect executed when numberMines state changes, it calls the resetGame method which will 
     // start the game if numberMines is not = to 0 (meaning user selected from dropdown)
     useEffect(() => {
-        if(numberMines>= (gridSize*gridSize)){
+        if(numberMines >= (gridSize*gridSize)){
             setNumberMines(1);
             resetGame(1);
         } else {
@@ -56,7 +61,11 @@ const GameContainer = function () {
     }, [numberMines, gridSize])
 
     const resetGame = (numberMines) => {
+
+        setTotalScore(0);
+
         gemPoints();
+
         const defaultArray = Array.from(Array(gridSize*gridSize),
             ()=>{ return {value: false, clicked: false}; });
         
@@ -71,7 +80,7 @@ const GameContainer = function () {
             // create custom number of bombs
             let bombIndexes = [];
             for (let i=0; i<numberMines; i++) {
-                let bombIndex = Math.floor(Math.random() * gridSize*gridSize); // generate random number 1-16
+                let bombIndex = Math.floor(Math.random() * gridSize*gridSize); // generate random number 1-gridsize
                 while (bombIndexes.includes(bombIndex)) {
                     bombIndex = Math.floor(Math.random() * gridSize*gridSize); // keep re-generating until number not already in list
                 }
@@ -104,12 +113,39 @@ const GameContainer = function () {
     }
     
     const incrementScore = () => {
-        const points = Math.round(score + multiplier);
-        // const points = Math.round((numberMines / gridSize) * 1)
-        setScore(points);
+        // multiplier formula: multiplier = 1/probabiloity of winning (considering all rounds of clicks)
+
+        // const points = Math.round(score + multiplier);
+        // setScore(points);
+        const numberTiles = gridSize * gridSize;
+        const initialNumberGems = numberTiles - numberMines;
+        const probabilityGem = (initialNumberGems - gemsRevealed) / numberTiles;
+        const probabilityOfSuccessFractions = [];
+        for (let i=0; i<numberClicks; i++) {
+            // console.log("initialNumberGems", initialNumberGems);
+            // console.log("numberTiles", numberTiles);
+            // console.log("i", i);
+            probabilityOfSuccessFractions.push((initialNumberGems - i) / (numberTiles - i));
+        }
+        console.log("probabilityOfSuccessFractions:", probabilityOfSuccessFractions);
+        let probabilityOfSuccess = 1;
+        for (let i=0; i<probabilityOfSuccessFractions.length; i++) {
+            probabilityOfSuccess *= probabilityOfSuccessFractions[i];
+        }
+        console.log("probabilityOfSuccess", probabilityOfSuccess);
+        let calcMultiplier = 1 / probabilityOfSuccess;
+        calcMultiplier = calcMultiplier.toFixed(2);
+        console.log("calcMultiplier", calcMultiplier);
+        setCurrentMultiplier(calcMultiplier);
+        // use calcMultiplier because asyncronous
+        setScore(score * calcMultiplier);
+
+        setGemsRevealed(gemsRevealed + 1);
+        setNumberCLicks(numberClicks + 1);
     }
 
     const cashOut = () => {
+
         setTotalScore(totalScore + score);
         
         setTimeout(() => { 
@@ -118,8 +154,10 @@ const GameContainer = function () {
                 setNumberOfLives(3);
             } else {
                 setNumberOfLives(numberOfLives - 1);
+                // setTotalScore(score)
+                // setScore(totalScore);
             }
-            setScore(0);
+            // setScore(0);
             resetGame(numberMines);
         }, 500);
         
@@ -138,8 +176,11 @@ const GameContainer = function () {
                 setNumberOfLives(3);
             } else {
                 setNumberOfLives(numberOfLives-1);
+                // setTotalScore(100);
+                // setScore(0);
             }
-            setScore(0);
+            setScore(100);
+            setTotalScore(0);
             resetGame(numberMines);
             // re-enable clicking of the tiles grid after has been processed & the cashout button
             document.querySelector(".Tile-list").style.pointerEvents = "auto";
@@ -207,6 +248,7 @@ const GameContainer = function () {
                     </div>
                     <br /><br />
                     <button onClick={cashOut} className="cashout-button"><strong>Cash Out: </strong>{score} point(s)</button>
+                    <p>Current Multiplier: {currentMultiplier}%</p>
                     <p>Current Points: {score}</p>
                     <br />
                     <hr />
@@ -245,7 +287,7 @@ const GameContainer = function () {
                                     {index+1}
                                 </option>);})}
                     </select>
-                    <p>{Math.round(multiplier)} points per gem</p>
+                    <p>{Math.round(multiplier)} points per gem</p>                    
                     <br /><br />
 
                     <ThemeSelect setChosenTheme={setChosenTheme}/>
