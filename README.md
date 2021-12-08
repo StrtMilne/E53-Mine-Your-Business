@@ -11,16 +11,16 @@ Extensions:
 - Enable user to set the number of mines ✔
 - Add sound responses to clicks ✔
 - Add lives ✔
-- Style high scores page 
+- Style high scores page ✔
 
 Advanced Extension:
-- Add animations to flipped/flipping cards
-- Choose grid size
+- Add animations to flipped/flipping cards ✔
+- Choose grid size ✔
 - Change game logic to make it more challenging ✔
-- Add heart graphics for the lives
+- Add heart graphics for the lives ✔
+- Instructions for main page ✔  
+- Create a levels page so you can play 1 bomb, then 2 bombs etc...    
 - PDA tasks 
-- Instructions for main page
-- Create a levels page so you can play 1 bomb, then 2 bombs etc...
 
 Possible weekend tasks: 
     add scoreboard high scores api & database ✔
@@ -29,8 +29,8 @@ Possible weekend tasks:
     add ability for user to choose number of mines ✔
     Iain/Alex :-reset game & score when bomb is clicked ✔
     ALEXANDER - cashout/stick&win button ✔
-    IAIN - stop true/false when hovering over tiles
+    IAIN - stop true/false when hovering over tiles ✔
     Add sounds to the click (ping/chime for gem, explosion for bomb, game over sound??) ✔
-    IAIN (maybe) when bomb is clicked and game resets pop-up message asking for name (for use in highscore list)
+    IAIN (maybe) when bomb is clicked and game resets pop-up message asking for name (for use in highscore list) ✔
     STUART - psql database for highscores (& themes?) ✔
     IAIN :- style title ✔
