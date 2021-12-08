@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.high-scores-div{
+    border-color: green;
+    background-color: black;
+    height:100%;
+    width:100vw;
+    padding-bottom: 5%;
+    color: white;
+    text-align: center;
+}
+
+.high-scores-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.chart-div {
+    padding-top: 2%;
+}
+
+.scoreboard {
+    padding-top: 3%;
+}
+
+.scoreboard > h1 {
+    padding-bottom: 1%;
+}
+
+.high-scores-list div{
+    margin-bottom: 5vh;
+    background-color: rgba(255, 255, 255, 0.455) ;
+    color: black;
+    height:15vh;
+    width: 25vw;
+    border:2px solid aqua;
+    border-color: aqua;
+    border-radius: 10px;
+    filter:drop-shadow(0px 0px 2px rgba(116, 219, 193, 0.815))
+    drop-shadow(0px 0px 2px rgb(2, 118, 2));
+    font-family: fantasy;
+}
+
+.high-scores-list div:first-child{
+    animation:highest-score 3s infinite alternate;
+}
+
+@keyframes highest-score {
+    0%{
+        filter:drop-shadow(0px 0px 5px rgb(42, 42, 251))
+        drop-shadow(0px 0px 10px rgb(26, 213, 242))
+        drop-shadow(0px 0px 20px rgb(78, 78, 159))
+        drop-shadow(0px 0px 30px rgb(4, 4, 69))
+    }
+    50%{
+        filter:drop-shadow(0px 0px 5px rgb(235, 24, 24))
+        drop-shadow(0px 0px 10px rgb(225, 16, 16))
+        drop-shadow(0px 0px 20px rgb(158, 27, 27))
+        drop-shadow(0px 0px 30px rgb(69, 4, 4))
+    }
+    100%{
+        filter:drop-shadow(0px 0px 5px rgb(33, 246, 47))
+        drop-shadow(0px 0px 10px rgb(20, 167, 4))
+        drop-shadow(0px 0px 20px rgb(78, 159, 81))
+        drop-shadow(0px 0px 30px rgb(4, 50, 2))
+    }    
+}

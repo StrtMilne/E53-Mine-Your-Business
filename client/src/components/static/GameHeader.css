@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.title-bar {
+    background-color: black;
+    height: 100vh;
+}
+.title-bar>svg{
+    width:90%;
+    stroke:#fff;
+    position:relative;
+    left: 10vh;
+    height: 50vh;
+    animation-name:animate;
+    animation-duration: 1.5s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+    background: transparent;
+}
+
+@keyframes animate{
+    0%{
+        filter: drop-shadow(0px 0px 1px #fff)
+
+        drop-shadow(0px 0px 3px rgb(31, 193, 252))
+        drop-shadow(0px 0px 5px rgb(31, 193, 252))
+        drop-shadow(0px 0px 8px rgb(31, 193, 252))
+
+
+    }
+    100%{
+        filter: drop-shadow(0px 0px 5px #fff)
+
+        drop-shadow(0px 0px 10px rgb(31, 193, 252))
+        drop-shadow(0px 0px 20px rgb(31, 193, 252))
+        drop-shadow(0px 0px 30px rgb(31, 193, 252))
+
+    }
+}
+
+p {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 145%;
+    font-family: 'Press Start 2P', cursive;
+    margin:0%
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 195%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.start-button {
+    width: 15vw;
+    height: 10vh;
+    border-radius: 2vw;
+    border: 0 auto;
+    color: darkslategray;
+    font-family: 'Press Start 2P', cursive;
+}

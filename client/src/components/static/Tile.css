@@ -1,0 +1,83 @@
+.individual_tile {
+   width: 10vw;
+   height: 10vw;
+   margin: 2px;
+   padding: 0;  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5px;
+   
+   animation: background 5s infinite alternate;
+   
+   background-color:rgba(118, 214, 255, 0.363)      
+}
+
+@keyframes background {
+    0% {
+        border-color: #ffffff;
+        filter: drop-shadow(0px 0px 8px #fff);
+      }
+      
+      100% {
+        border-color: #3a3a3a;
+        filter:drop-shadow(0px 0px 20px #fff)
+      }
+
+    }
+
+.toolTipText{
+    position:relative;
+
+}
+
+.gem-image {
+   animation:animate-gem 1s infinite alternate;
+}
+@keyframes animate-gem{
+  0%{
+    transform:scale(0.5) ;
+  }
+  100%{
+    transform:scale(1)
+  }
+  
+}
+
+.bomb-image {
+   animation:animate-bomb 1s infinite alternate;
+}
+@keyframes animate-bomb{
+  0%{
+    transform:scale(0.09) ;
+  }
+  100%{
+    transform:scale(0.15)
+  }
+  
+}
+
+.mcclane-image {
+    object-fit: cover;
+    width: 10vw;
+    height: 10vw;
+}
+
+.hans-image {
+    object-fit: cover;
+    width: 10vw;
+    height: 10vw;
+}
+
+
+.xmas .Tile-list .individual_tile {
+  width: 10vw;
+  height: 10vw;
+  margin: 2px;
+  padding: 0;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgba(131, 0, 0, 0.562)      
+}

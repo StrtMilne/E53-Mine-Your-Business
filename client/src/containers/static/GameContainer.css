@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.outxmas {
+    font-size: 135%;
+    background-image: url("./image.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    cursor: url("Snowflake.png"), default;
+}
+
+.outmines {
+    font-size: 135%;
+    background-image: url("./img4.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+
+.mines {
+    display: flex;
+    justify-content: space-around;
+    color:whitesmoke;
+    padding-bottom: 5%;
+    padding-top: 0.5%;
+    padding-bottom: 13%;
+    text-align: center;
+}
+
+.xmas { 
+    display: flex;
+    justify-content: space-around;
+    background: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:whitesmoke;
+    padding-bottom: 5%;
+    padding-top: 0.5%;
+    padding-bottom: 13%;
+    text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+    text-align: center;
+}
+
+.left {
+    width: 20vw;
+    text-align: left;
+}
+
+.right {
+    width: 80vw;
+}
+
+.button{
+    background-color: rgb(117, 117, 117);
+    font-size: 4rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    border:rgb(4, 110, 4) 0.125em solid;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:rgb(4, 110, 4);
+    padding:0.25 1em;
+    border-radius: 0.25em;
+
+    text-shadow: 
+    0 0 0.125em rgba(255, 255, 255, 0.753),
+    0 0 0.25em currentColor;
+
+    box-shadow: inset 0 0 0.25em 0 rgb(20, 151, 0),
+    0 0 1em 0 currentColor;
+    ;
+    position: relative;
+}
+.button::before{
+    content:"";
+    position: absolute;
+    background:rgb(4, 110, 4);
+    top:120%;
+    left:0;
+    width:100%;
+    height:100%;
+    transform: perspective(4em)rotateX(40deg)scale(1,0.25);
+    filter:blur(2em)
+
+}
+
+.popup {
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display:block;
+    background-color: rgba(126, 126, 126, 0.756);
+    border: 1px solid white;
+    color:white; 
+}
+
+.heart-images {
+    display: flex;
+    flex-flow: row nowrap;
+   	animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    12.5% {
+        -webkit-transform: scale(1.025);
+        transform: scale(1.025);
+    }
+    25% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+    50% {
+       -webkit-transform: scale(1.1);
+       transform: scale(1.1);
+    }
+    75% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+    87.5% {
+        -webkit-transform: scale(1.175);
+        transform: scale(1.175);
+    }
+    100% {
+        -webkit-transform: scale(1.2);
+       transform: scale(1.2);
+    }
+}
+
+.total-score-data {
+    align-items: center;
+}
+
+.heart-images > div > img {
+    margin-right: 5px;
+}
+
+.lives-data {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: left;
+}
+
+.heart-images {
+    margin-left: 17.5%;
+}
+
+.cashout-button {
+    padding: 0;
+    width: 90%;
+    height: 7.5%;
+    font-size: 95%;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgb(76, 179, 244);
+    border-radius: 1vw; 
+    cursor: pointer;
+}
+
+.cashout-button:hover {
+    background-color: rgb(118, 178, 251);
+}
+
+.cashout-button:active {
+  background-color: #666;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.xmas .left .cashout-button {
+    width: 90%;
+    height: 7.5%;
+    font-size: 115%;
+    background-color:rgba(131, 0, 0, 0.562);
+    color: white;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.xmas .left .cashout-button:hover {
+    background-color: rgba(226, 0, 0, 0.562);
+}
+
+.xmas .left .cashout-button:active {
+  background-color: rgba(165, 52, 52, 0.562);
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+.xmas select {
+    background: rgba(226, 0, 0, 0.562);
+    color: white;
+    border: white 2px solid;
+    padding: 3px;
+    font-size: 20px;
+    text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+}
+
+.mines select {
+    background: rgba(76, 180, 244, 0.64);
+    color: white;
+    border: white 2px solid;
+    padding: 3px;
+    font-size: 20px;
+}
+
+option  {
+    background: rgba(131, 0, 0, 0.562);
+    color: white;
+}
+
+.left h2 {
+    text-align: left;
+    background: transparent;
+}
+
+.left p {
+    text-align: left;
+    background: transparent;
+    padding-top: 40px;
+    font-size: 95%;
+}
+
+.mines .left form button {
+    width: 30%;
+    height: 20%;
+    font-size: 80%;
+    background-color: rgb(76, 179, 244);
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.xmas .left form button {
+    width: 20%;
+    height: 25%;
+    font-size: 105%;
+    background-color: rgba(131, 0, 0, 0.562);
+    color: white;
+    border-radius: 1vw;
+    cursor: pointer;
+
+}
+
+label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 70%;
+    margin: 0;
+    padding: 0;
+}
