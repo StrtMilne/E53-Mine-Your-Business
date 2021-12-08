@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { postScore } from "../ScoresService";
 
-const PopUp = function({ totalScore, handleNameSubmit }) {
+const PopUp = function({ snapshotTotalScore, handleNameSubmit }) {
 
     const [inputName, setInputName] = useState("");
 
@@ -12,7 +12,7 @@ const PopUp = function({ totalScore, handleNameSubmit }) {
     const handleClick = () => {
         const data = {
             "player_name": inputName,
-            "score": totalScore
+            "score": snapshotTotalScore
         };
         postScore(data);
         handleNameSubmit();
@@ -21,7 +21,7 @@ const PopUp = function({ totalScore, handleNameSubmit }) {
     
     return (
         <div>
-            <h3>Score 🥇 : {totalScore}</h3>
+            <h3>Score 🥇 : {snapshotTotalScore}</h3>
             <h3>Please enter your name:</h3>
             
             <input type="text" onChange={handleOnChange} />

@@ -32,6 +32,7 @@ const GameContainer = function () {
     const [currentMultiplier, setCurrentMultiplier] = useState(0);
     const [gemsRevealed, setGemsRevealed] = useState(0);
     const [numberClicks, setNumberCLicks] = useState(1);
+    const [snapshotTotalScore, setSnapshotTotalScore] = useState(0);
 
     const getHighScores = function() {
         getScores()
@@ -138,18 +139,19 @@ const GameContainer = function () {
         console.log("calcMultiplier", calcMultiplier);
         setCurrentMultiplier(calcMultiplier);
         // use calcMultiplier because asyncronous
-        setScore(score * calcMultiplier);
+        setScore((score * calcMultiplier).toFixed(2));
 
         setGemsRevealed(gemsRevealed + 1);
         setNumberCLicks(numberClicks + 1);
     }
 
     const cashOut = () => {
-
-        setTotalScore(totalScore + score);
-        
+        setTotalScore(score);
         setTimeout(() => { 
             if (numberOfLives === 1) {
+                console.log("totalScore", totalScore);
+                setSnapshotTotalScore(totalScore);
+                console.log("snapshotTotalScore", snapshotTotalScore);
                 setEndGame(true);
                 setNumberOfLives(3);
             } else {
@@ -158,9 +160,10 @@ const GameContainer = function () {
                 // setScore(totalScore);
             }
             // setScore(0);
-            resetGame(numberMines);
+            setTimeout(() => {
+                resetGame(numberMines);
+            }, 500)
         }, 500);
-        
     }
 
     const bombClicked = () => {
@@ -169,9 +172,10 @@ const GameContainer = function () {
         document.querySelector(".cashout-button").style.pointerEvents = "none";
         // 2 second delay before resetting grid after bomb click
         // number of lives is 3 when lives = 0 then Total score will reset to 0
-        setTotalScore(0);
+        // setTotalScore(0);
         setTimeout(() => {
-            if(numberOfLives === 1){
+            if (numberOfLives === 1) {
+                setSnapshotTotalScore(totalScore);
                 setEndGame(true);
                 setNumberOfLives(3);
             } else {
@@ -297,7 +301,7 @@ const GameContainer = function () {
                 </div>
                 {endGame ? 
                 <div className="popup">
-                    <PopUp totalScore={totalScore} handleNameSubmit={handleNameSubmit}/>
+                    <PopUp snapshotTotalScore={score} handleNameSubmit={handleNameSubmit} />
                 </div>
                 : null}
             </div>
