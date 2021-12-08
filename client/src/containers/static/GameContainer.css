@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
 .outxmas {
@@ -40,6 +41,7 @@
     padding-top: 0.5%;
     padding-bottom: 13%;
     /* height: 100vh; */
+    text-align: center;
 }
 
 .xmas { 
@@ -54,10 +56,12 @@
     padding-bottom: 13%;
     /* height: 100vh; */
     text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+    text-align: center;
 }
 
 .left {
     width: 20vw;
+    text-align: left;
 }
 
 .right {
@@ -149,6 +153,10 @@
     }
 }
 
+.total-score-data {
+    align-items: center;
+}
+
 .heart-images > div > img {
     /* border: 1px solid white; */
     margin-right: 5px;
@@ -156,18 +164,22 @@
 
 .lives-data {
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+    flex-flow: column nowrap;
+    text-align: left;
 }
 
-.lives-data > h2 {
-    padding-right: 7.5%;
+.heart-images {
+    margin-left: 17.5%;
 }
+
+
 
 .cashout-button {
+    padding: 0;
     width: 90%;
     height: 7.5%;
-    font-size: 115%;
+    font-size: 95%;
+    font-family: 'Press Start 2P', cursive;
     background-color: rgb(76, 179, 244);
     border-radius: 1vw; 
     cursor: pointer;
@@ -178,7 +190,7 @@
 }
 
 .cashout-button:active {
-  background-color: #;
+  background-color: #666;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
@@ -231,13 +243,17 @@ option  {
 
 .left p {
     text-align: left;
+    background: transparent;
+    padding-top: 40px;
+    font-size: 95%;
 }
 
 .mines .left form button {
-    width: 20%;
-    height: 5%;
-    font-size: 110%;
+    width: 30%;
+    height: 20%;
+    font-size: 80%;
     background-color: rgb(76, 179, 244);
+    font-family: 'Press Start 2P', cursive;
     color: black;
     border-radius: 1vw;
     cursor: pointer;
@@ -246,11 +262,21 @@ option  {
 
 .xmas .left form button {
     width: 20%;
-    height: 5%;
+    height: 25%;
     font-size: 105%;
     background-color: rgba(131, 0, 0, 0.562);
     color: white;
     border-radius: 1vw;
     cursor: pointer;
 
+}
+
+label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 70%;
+    margin: 0;
+    padding: 0;
+}
+
+.adjustables {
 }

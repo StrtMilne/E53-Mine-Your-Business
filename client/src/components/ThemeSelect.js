@@ -45,12 +45,12 @@ const ThemeSelect = function ({setChosenTheme}) {
 
     return(
         <form onSubmit={handleSubmit}>
-            <label for="select-theme">Select Theme: </label>
+            <label for="select-theme">Theme: </label>
             <select onChange={handleChange}>
                 <option value="mines">Mines</option>
                 <option value="christmas">Christmas</option>
             </select>
-            <button type="submit">Set</button>
+            <button type="submit" style={{marginLeft: "2.5%", padding: "2%"}}>Set</button>
         </form>
     )
 }
