@@ -99,7 +99,7 @@ const GameContainer = function () {
     const gemPoints = () => {
         const probMine =(numberMines/(gridSize*gridSize));
         const probGem = ((gridSize*gridSize - numberMines)/gridSize*gridSize);
-        const multiplier = (1/(probGem/(gridSize*gridSize)));
+        const multiplier = (1000/(probGem/(gridSize*gridSize)));
         setMultiplier(multiplier);
     }
     

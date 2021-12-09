@@ -21,11 +21,11 @@ const PopUp = function({ totalScore, handleNameSubmit }) {
     
     return (
         <div>
-            <h3>Score 🥇 : {totalScore}</h3>
-            <h3>Please enter your name:</h3>
+            <h3 className="popup-line">Score 🥇 : {totalScore}</h3>
+            <h3 className="popup-line">Please enter your name:</h3>
             
-            <input type="text" onChange={handleOnChange} />
-            <button onClick={handleClick}>Submit</button>
+            <input type="text" className="popup-line" onChange={handleOnChange} />
+            <button className="popup-line pop-button" onClick={handleClick}>Submit</button>
         </div>
     )
 }

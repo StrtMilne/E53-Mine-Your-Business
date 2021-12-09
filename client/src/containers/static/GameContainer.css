@@ -99,6 +99,16 @@
     color:white; 
 }
 
+.popup-line {
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px;
+}
+
+.pop-button {
+    background-color: rgb(76, 179, 244);
+}
+
+
 .heart-images {
     display: flex;
     flex-flow: row nowrap;
