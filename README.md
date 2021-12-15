@@ -1,4 +1,23 @@
-Browser game brief:
+# A Broswer Game written in JavaScript with React, PostgreSQL, CSS and HTML 
+
+Select squares on a grid to uncover a mine or a gem. Gems score points while mines resest your running score to zero.
+
+You have three 'lives' in which you can either hit a mine or 'cash out' to add to your total running score. Scores are saved to a high scores page.
+
+You can toggle the theme of the game between 'mines' and 'christmas'.
+
+## To run:
+
+Run 'npm i' in both the client and server directories.
+
+Run 'createdb game' and then 'psql -d game -f game.sql' to set up the database.
+
+Run 'npm start' in the client directory to start the app.
+
+Run 'npm server:dev' in the server directory to run the server.
+
+
+## Browser game brief:
 
 MVP:
 - Create a JavaScript 4x4 grid game modeled on 'mines' ✔
@@ -19,18 +38,3 @@ Advanced Extension:
 - Change game logic to make it more challenging ✔
 - Add heart graphics for the lives ✔
 - Instructions for main page ✔  
-- Create a levels page so you can play 1 bomb, then 2 bombs etc...    
-- PDA tasks 
-
-Possible weekend tasks: 
-    add scoreboard high scores api & database ✔
-    set up scores in game ✔
-    researching react router for second page ✔
-    add ability for user to choose number of mines ✔
-    Iain/Alex :-reset game & score when bomb is clicked ✔
-    ALEXANDER - cashout/stick&win button ✔
-    IAIN - stop true/false when hovering over tiles ✔
-    Add sounds to the click (ping/chime for gem, explosion for bomb, game over sound??) ✔
-    IAIN (maybe) when bomb is clicked and game resets pop-up message asking for name (for use in highscore list) ✔
-    STUART - psql database for highscores (& themes?) ✔
-    IAIN :- style title ✔
