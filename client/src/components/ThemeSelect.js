@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import bombImage from "../assets/bomb2.svg";
 import gemImage from "../assets/gem.svg";
-import yippee from "./static/yippee.wav";
-import hoHoHo from "./static/hoHoHo.wav";
+import coal from "./static/lump-of-coal-2.mp3";
+import hoHoHo from "./static/ho-ho-ho.wav";
 import useSound from 'use-sound';
 import gemSound from "./static/magic.wav"
 import bombSound from "./static/gun.wav"
@@ -12,13 +12,13 @@ const ThemeSelect = function ({setChosenTheme}) {
     const mines = {name: "mines",goodImage: gemImage, badImage: bombImage, goodClass: "gem-image", badClass: "bomb-image", class: "mines", goodSound: gemSound , badSound: bombSound};
     const christmas = {
         name: "dieHard",
-        goodImage: "https://static3.srcdn.com/wordpress/wp-content/uploads/2020/12/Die-Hard-Is-A-Christmas-Movie-Debate-Ended-By-The-Movie---s-Director.jpg", 
-        badImage: "https://static2.cbrimages.com/wordpress/wp-content/uploads/2021/02/hans-death.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5",
+        goodImage: "https://icon-library.com/images/christmas-gift-icon/christmas-gift-icon-27.jpg", 
+        badImage: "https://www.pngrepo.com/png/156300/512/coal.png",
         class: "xmas",
-        goodClass: "mcclane-image",
-        badClass: "hans-image",
-        goodSound: yippee,
-        badSound: hoHoHo
+        goodClass: "goodxmas-image",
+        badClass: "badxmas-image",
+        goodSound: hoHoHo,
+        badSound: coal
     };
 
     const [currentTheme, setCurrentTheme] = useState(mines);

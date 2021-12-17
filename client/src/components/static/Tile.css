@@ -57,16 +57,30 @@
   
 }
 
-.mcclane-image {
-    object-fit: cover;
-    width: 10vw;
-    height: 10vw;
+.goodxmas-image {
+  animation:animate-gem 1s infinite alternate;
+}
+@keyframes animate-gem{
+ 0%{
+   transform:scale(0.1) ;
+ }
+ 100%{
+   transform:scale(0.4)
+ }
+ 
 }
 
-.hans-image {
-    object-fit: cover;
-    width: 10vw;
-    height: 10vw;
+.badxmas-image {
+  animation:animate-bomb 1s infinite alternate;
+}
+@keyframes animate-bomb{
+ 0%{
+   transform:scale(0.2) ;
+ }
+ 100%{
+   transform:scale(0.3)
+ }
+ 
 }
 
 
