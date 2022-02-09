@@ -1,10 +1,14 @@
 # A Broswer Game written in JavaScript with React, PostgreSQL, CSS and HTML 
 
+## Play now: [https://mines-game.herokuapp.com/]
+
 Select squares on a grid to uncover a mine or a gem. Gems score points while mines resest your running score to zero.
 
 You have three 'lives' in which you can either hit a mine or 'cash out' to add to your total running score. Scores are saved to a high scores page.
 
 You can toggle the theme of the game between 'mines' and 'christmas'.
+
+![Screenshot 2022-02-09 165836](https://user-images.githubusercontent.com/86377797/153251258-25c03f41-7933-453b-9dc7-8c62ad7fbc23.png)
 
 ## To run:
 
